@@ -41,7 +41,7 @@ public class UtilsUsers {
 	    boolean valid = false;
 		try {
 		    Session session = Conn.getSession();
-		    Query<User> query = session.createQuery("SELECT p FROM com.jacaranda.java.User p WHERE usurname='" + usurname + "'and password='"+passwordEncript+"'",User.class);
+		    Query<User> query = session.createQuery("SELECT p FROM com.jacaranda.java.User p WHERE username='" + usurname + "'and password='"+passwordEncript+"'",User.class);
 		    if(!query.getResultList().isEmpty()) {
 		        valid = true;
 		    

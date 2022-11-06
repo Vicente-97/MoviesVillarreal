@@ -29,15 +29,15 @@
     text-align: justify;
     padding-left: 1em;
 }
-#user{
+#username{
     border: 2px solid grey;
   border-radius: 10px;
   background-image: url("images/user.png");
   background-position: 185px 1px; 
   background-repeat: no-repeat;
   
-  
-}#password{
+}
+#password{
     border: 2px solid grey;
   border-radius: 10px;
   background-image: url("images/password.png");

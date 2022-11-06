@@ -18,10 +18,11 @@
          	HttpSession userSession = request.getSession();
          	session.setAttribute("login", "True");
          	session.setAttribute("usuario", usuario);
-    		response.sendRedirect("NewFile.jsp");
+         	
+    		response.sendRedirect(request.getContextPath()+"/ListMovies");
             		
        	} else { 
-       		response.sendRedirect("index.jsp?msg_error=true");
+       		response.sendRedirect("error.jsp?msg_error=true");
   	 	}
 	 } 
 %>

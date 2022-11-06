@@ -12,28 +12,19 @@
     	<img src="images/logo_movie-removebg.png" width="110px" height="100px" id="logo">
                      
         <div id="centroLogin">
-     
+    
         	<form action="CheckLogin.jsp"  method="post">
-            	<h1 id="titulo">Bienvenido Cinéfilo</h1>
-				<%
-				//Se comprueba si existe la variable error que vendría true del checkLogin si algun campo fuese incorrecto
-				String messageLog = request.getParameter("msg_error");
-				if(messageLog!=null){
-				%>
-					<div>
-						<span>El usuario o la contraseña son incorrectos</span>
-					</div>
-				<%}%>
+            	<h1 id="titulo">MoviesVillarreal</h1>
+							
 			
-				<!--Formulario de login que enviará la información a CheckLogin.java y hará las comprobaciones-->
+				<!--Formulario de login que enviará la información a CheckLogin.jsp y hará las comprobaciones-->
 		
 	            <p id="textoUser">Usuario:
-	            <br>
-	            <center><input type="text" required name="username" id="username" ></p></center>
+	            <br>	            
+	            <input type="text" required name="username" id="username" ></p>
 	            
-	            <p id="textoContrasena">Contraseña: 
-	             <br>
-	            <center><input type="password" required name="password" id="password"></p></center>
+	            <p id="textoContrasena">Contraseña: 	             
+	            <input type="password" required name="password" id="password"></p>
 	            
                 <p><input type="submit" id="Enviar" value="Enviar"></p>
           	</form>

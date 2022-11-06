@@ -13,7 +13,7 @@ import javax.persistence.Id;
 @Entity (name = "users")
 public class User {
 	@Id
-	private String usurname;
+	private String username;
 	private String password;
 
 	public User() {
@@ -22,7 +22,7 @@ public class User {
 
 	public User(String usurname, String password) {
 
-		this.usurname = usurname;
+		this.username = usurname;
 		this.password = password;
 	}
 
