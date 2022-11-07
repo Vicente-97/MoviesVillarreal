@@ -1,5 +1,6 @@
 package com.jacaranda.java;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -8,6 +9,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 @Entity (name="movies")
 public class Movies {
@@ -21,6 +23,8 @@ public class Movies {
 	@JoinColumn(name="category_id")
 	private Category category;
 	
+	@OneToMany
+	private List<Purchase> purchases;
 	
 
 	public Movies() {
@@ -34,6 +38,7 @@ public class Movies {
 		this.description_movie = description_movie;
 		this.price = price;
 		this.category = category;
+		this.purchases=new ArrayList<>();
 	}
 
 	public Integer getId() {
@@ -109,6 +114,14 @@ public class Movies {
 	public String toString() {
 		return "Movies [id=" + id + ", title=" + title + ", description_movie=" + description_movie + ", price=" + price
 				+ ", category=" + category + "]";
+	}
+
+	public List<Purchase> getPurchases() {
+		return purchases;
+	}
+
+	public void setPurchases(List<Purchase> purchases) {
+		this.purchases = purchases;
 	}
 	
 	
