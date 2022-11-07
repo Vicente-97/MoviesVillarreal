@@ -67,6 +67,7 @@ public class ListMovies extends HttpServlet {
 					+ "<th>title</th>"
 					+ "<th>Description</th>"
 					+ "<th>Price</th>"
+					+ "<th>Category_id</th>"
 					+ "</tr>");
 			
 			Iterator<Movies> iterator = listMovie.iterator();
@@ -81,7 +82,8 @@ public class ListMovies extends HttpServlet {
 							+ "<td>"+movie.getId()+"</td>"
 							+ "<td>"+movie.getTitle()+"</td>"
 							+ "<td>"+movie.getDescription_movie()+"</td>"
-							+ "<td>"+movie.getPrice()+"</td>");
+							+ "<td>"+movie.getPrice()+"</td>"
+							+ "<td>"+movie.getCategory().getGenres()+"</td>");
 							
 					
 			}

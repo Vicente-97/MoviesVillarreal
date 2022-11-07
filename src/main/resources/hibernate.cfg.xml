@@ -10,8 +10,9 @@
   <property name="hibernate.dialect">org.hibernate.dialect.MySQLInnoDBDialect</property>
   <property name="hibernate.show_sql">true</property>
   <property name="hibernate.format_sql">true</property>
+  <mapping class="com.jacaranda.java.Category"/>
   <mapping class="com.jacaranda.java.User"/>
   <mapping class="com.jacaranda.java.Movies"/>
-  <mapping class="com.jacaranda.java.Category"/>
+  <mapping class="com.jacaranda.java.Purchase"/>
  </session-factory>
 </hibernate-configuration>

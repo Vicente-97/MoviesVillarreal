@@ -27,6 +27,7 @@
 	            <input type="password" required name="password" id="password"></p>
 	            
                 <p><input type="submit" id="Enviar" value="Enviar"></p>
+                <a href="Registro.jsp">Registrese aquí</a>
           	</form>
        	</div>
    	</div>

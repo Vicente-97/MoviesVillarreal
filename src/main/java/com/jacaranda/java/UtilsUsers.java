@@ -36,12 +36,12 @@ public class UtilsUsers {
 	}
 	
 	  //Comprueba si el usuario es valido en nuestra base de datos.
-	public static boolean userIsValid(String usurname, String password) {
+	public static boolean userIsValid(String username, String password) {
 		String passwordEncript= Md5encript.getMD5(password);
 	    boolean valid = false;
 		try {
 		    Session session = Conn.getSession();
-		    Query<User> query = session.createQuery("SELECT p FROM com.jacaranda.java.User p WHERE username='" + usurname + "'and password='"+passwordEncript+"'",User.class);
+		    Query<User> query = session.createQuery("SELECT p FROM com.jacaranda.java.User p WHERE username='" + username + "'and password='"+passwordEncript+"'",User.class);
 		    if(!query.getResultList().isEmpty()) {
 		        valid = true;
 		    

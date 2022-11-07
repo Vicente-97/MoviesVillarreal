@@ -1,350 +1,392 @@
-create table category (
-	id INT,
-	genres VARCHAR(50),
-	description_category VARCHAR(100),
+-- phpMyAdmin SQL Dump
+-- version 5.2.0
+-- https://www.phpmyadmin.net/
+--
+-- Servidor: mysqlDawes:3306
+-- Tiempo de generación: 07-11-2022 a las 10:51:49
+-- Versión del servidor: 5.7.22
+-- Versión de PHP: 8.0.19
 
-    constraint pk_category primary key (id)
-);
-
-
-insert into category (id, genres, description_category) values (1, 'Action|Comedy|Crime', 'in hac habitasse');
-insert into category (id, genres, description_category) values (2, 'Drama|Romance', 'ipsum aliquam non');
-insert into category (id, genres, description_category) values (3, 'Drama', 'commodo placerat praesent');
-insert into category (id, genres, description_category) values (4, 'Action|Comedy', 'a libero nam');
-insert into category (id, genres, description_category) values (5, 'Crime|Drama|Romance', 'semper est quam');
-insert into category (id, genres, description_category) values (6, 'Action|Sci-Fi|Thriller', 'erat fermentum justo');
-insert into category (id, genres, description_category) values (7, 'Drama|Mystery|Romance|Thriller', 'in tempor turpis');
-insert into category (id, genres, description_category) values (8, 'Comedy|Drama|Mystery|Thriller', 'in felis eu');
-insert into category (id, genres, description_category) values (9, 'Comedy', 'amet eros suspendisse');
-insert into category (id, genres, description_category) values (10, 'Drama|Film-Noir', 'non lectus aliquam');
-insert into category (id, genres, description_category) values (11, 'Comedy|Horror', 'pede ac diam');
-insert into category (id, genres, description_category) values (12, 'Comedy|Crime|Drama|Mystery', 'luctus et ultrices');
-insert into category (id, genres, description_category) values (13, 'Drama|Romance', 'dis parturient montes');
-insert into category (id, genres, description_category) values (14, 'Drama', 'turpis enim blandit');
-insert into category (id, genres, description_category) values (15, 'Horror|Thriller', 'ultrices posuere cubilia');
-insert into category (id, genres, description_category) values (16, 'Comedy|Romance', 'rhoncus aliquam lacus');
-insert into category (id, genres, description_category) values (17, 'Comedy|Crime|Thriller', 'odio elementum eu');
-insert into category (id, genres, description_category) values (18, 'Comedy|Drama|War', 'cursus vestibulum proin');
-insert into category (id, genres, description_category) values (19, 'Crime|Mystery|Thriller', 'pellentesque volutpat dui');
-insert into category (id, genres, description_category) values (20, 'Action|Animation|Sci-Fi', 'lacinia nisi venenatis');
-insert into category (id, genres, description_category) values (21, 'Action|Adventure|Sci-Fi|Thriller', 'nec molestie sed');
-insert into category (id, genres, description_category) values (22, 'Documentary', 'dolor quis odio');
-insert into category (id, genres, description_category) values (23, 'Comedy', 'turpis integer aliquet');
-insert into category (id, genres, description_category) values (24, 'Action|Crime|Drama', 'platea dictumst aliquam');
-insert into category (id, genres, description_category) values (25, 'Documentary', 'vel enim sit');
-insert into category (id, genres, description_category) values (26, 'Adventure|Drama', 'nisl nunc rhoncus');
-insert into category (id, genres, description_category) values (27, 'Drama', 'sagittis nam congue');
-insert into category (id, genres, description_category) values (28, 'Action', 'pede justo lacinia');
-insert into category (id, genres, description_category) values (29, 'Animation|Children|Comedy', 'quis augue luctus');
-insert into category (id, genres, description_category) values (30, 'Action|Comedy|Western', 'porta volutpat erat');
-insert into category (id, genres, description_category) values (31, '(no genres listed)', 'a odio in');
-insert into category (id, genres, description_category) values (32, 'Action|Drama|War', 'nulla neque libero');
-insert into category (id, genres, description_category) values (33, 'Drama', 'donec ut mauris');
-insert into category (id, genres, description_category) values (34, 'Crime|Drama|Romance', 'in felis eu');
-insert into category (id, genres, description_category) values (35, 'Drama|Romance', 'ultricies eu nibh');
-insert into category (id, genres, description_category) values (36, 'Drama|Romance|Western', 'quisque erat eros');
-insert into category (id, genres, description_category) values (37, 'Drama', 'tellus nisi eu');
-insert into category (id, genres, description_category) values (38, 'Comedy|Musical|Romance', 'cubilia curae duis');
-insert into category (id, genres, description_category) values (39, 'Drama', 'at dolor quis');
-insert into category (id, genres, description_category) values (40, 'Action|Mystery|Thriller', 'proin at turpis');
-insert into category (id, genres, description_category) values (41, 'Adventure|Musical', 'sollicitudin vitae consectetuer');
-insert into category (id, genres, description_category) values (42, 'Comedy|Drama', 'turpis nec euismod');
-insert into category (id, genres, description_category) values (43, 'Drama|Romance', 'at lorem integer');
-insert into category (id, genres, description_category) values (44, 'Action|Adventure|Comedy|Sci-Fi', 'amet sapien dignissim');
-insert into category (id, genres, description_category) values (45, 'Drama|Thriller', 'ut nulla sed');
-insert into category (id, genres, description_category) values (46, 'Action|Adventure|Drama|Fantasy|Romance', 'porttitor lorem id');
-insert into category (id, genres, description_category) values (47, 'Drama', 'tortor sollicitudin mi');
-insert into category (id, genres, description_category) values (48, 'Comedy', 'eu nibh quisque');
-insert into category (id, genres, description_category) values (49, 'Comedy|War', 'adipiscing elit proin');
-insert into category (id, genres, description_category) values (50, 'Comedy|Drama|Fantasy', 'amet consectetuer adipiscing');
-insert into category (id, genres, description_category) values (51, 'Drama', 'neque sapien placerat');
-insert into category (id, genres, description_category) values (52, 'Drama', 'et ultrices posuere');
-insert into category (id, genres, description_category) values (53, 'Comedy', 'nisi eu orci');
-insert into category (id, genres, description_category) values (54, 'Action|Crime|Thriller', 'ipsum aliquam non');
-insert into category (id, genres, description_category) values (55, 'Crime|Horror|Mystery|Thriller', 'ipsum praesent blandit');
-insert into category (id, genres, description_category) values (56, 'Drama|Romance|Thriller', 'commodo vulputate justo');
-insert into category (id, genres, description_category) values (57, 'Drama', 'nam dui proin');
-insert into category (id, genres, description_category) values (58, 'Drama|Romance', 'non mauris morbi');
-insert into category (id, genres, description_category) values (59, 'Action|Adventure|Drama|War', 'ipsum aliquam non');
-insert into category (id, genres, description_category) values (60, 'Drama|Romance', 'eu magna vulputate');
-insert into category (id, genres, description_category) values (61, 'Musical', 'sed accumsan felis');
-insert into category (id, genres, description_category) values (62, 'Drama', 'malesuada in imperdiet');
-insert into category (id, genres, description_category) values (63, 'Comedy', 'mi nulla ac');
-insert into category (id, genres, description_category) values (64, 'Drama|Film-Noir', 'sit amet consectetuer');
-insert into category (id, genres, description_category) values (65, 'Comedy', 'proin interdum mauris');
-insert into category (id, genres, description_category) values (66, 'Comedy', 'sagittis nam congue');
-insert into category (id, genres, description_category) values (67, 'Comedy', 'id consequat in');
-insert into category (id, genres, description_category) values (68, 'Action|Adventure|Horror|Sci-Fi', 'vulputate nonummy maecenas');
-insert into category (id, genres, description_category) values (69, 'Drama|Mystery|Romance|Thriller', 'metus aenean fermentum');
-insert into category (id, genres, description_category) values (70, 'Comedy|Drama|War', 'eleifend luctus ultricies');
-insert into category (id, genres, description_category) values (71, 'Comedy', 'ac neque duis');
-insert into category (id, genres, description_category) values (72, 'Drama|Romance', 'turpis donec posuere');
-insert into category (id, genres, description_category) values (73, 'Drama', 'iaculis congue vivamus');
-insert into category (id, genres, description_category) values (74, 'Documentary', 'mi pede malesuada');
-insert into category (id, genres, description_category) values (75, 'Drama', 'sem fusce consequat');
-insert into category (id, genres, description_category) values (76, 'Action|Drama', 'sociis natoque penatibus');
-insert into category (id, genres, description_category) values (77, 'Drama|Romance', 'vestibulum ac est');
-insert into category (id, genres, description_category) values (78, 'Comedy|Fantasy', 'etiam vel augue');
-insert into category (id, genres, description_category) values (79, 'Drama|Film-Noir|Thriller', 'non mattis pulvinar');
-insert into category (id, genres, description_category) values (80, 'Drama|Romance', 'aliquet at feugiat');
-insert into category (id, genres, description_category) values (81, 'Drama', 'justo eu massa');
-insert into category (id, genres, description_category) values (82, 'Comedy', 'dui vel nisl');
-insert into category (id, genres, description_category) values (83, 'Crime|Drama|Thriller', 'scelerisque quam turpis');
-insert into category (id, genres, description_category) values (84, 'Drama', 'mauris enim leo');
-insert into category (id, genres, description_category) values (85, 'Comedy', 'pretium nisl ut');
-insert into category (id, genres, description_category) values (86, 'Comedy', 'sit amet sem');
-insert into category (id, genres, description_category) values (87, 'Adventure', 'etiam pretium iaculis');
-insert into category (id, genres, description_category) values (88, 'Documentary', 'turpis enim blandit');
-insert into category (id, genres, description_category) values (89, 'Drama', 'ipsum primis in');
-insert into category (id, genres, description_category) values (90, 'Adventure|Comedy|Documentary', 'justo morbi ut');
-insert into category (id, genres, description_category) values (91, 'Comedy|Drama', 'luctus et ultrices');
-insert into category (id, genres, description_category) values (92, 'Drama', 'mauris eget massa');
-insert into category (id, genres, description_category) values (93, 'Action|Crime|Sci-Fi|Thriller', 'pede malesuada in');
-insert into category (id, genres, description_category) values (94, 'Horror', 'ut suscipit a');
-insert into category (id, genres, description_category) values (95, 'Comedy|Drama', 'tellus semper interdum');
-insert into category (id, genres, description_category) values (96, 'Action|Sci-Fi', 'blandit non interdum');
-insert into category (id, genres, description_category) values (97, 'Documentary|Musical', 'ante ipsum primis');
-insert into category (id, genres, description_category) values (98, 'Comedy|Drama', 'sapien iaculis congue');
-insert into category (id, genres, description_category) values (99, 'Comedy|Drama', 'dolor vel est');
-insert into category (id, genres, description_category) values (100, 'Drama|Musical', 'dapibus duis at');
-
-create table movies (
-	id INT,
-	title VARCHAR(100),
-	description_movie VARCHAR(100),
-	price DECIMAL(4,2),
-
-	constraint pk_movies primary key (id)
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
 
 
-);
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
 
+--
+-- Base de datos: `MoviesVillarreal`
+--
 
-insert into movies (id, title, description_movie, price) values (1, 'Beastmaster, The', 'orci mauris lacinia', 9.17);
-insert into movies (id, title, description_movie, price) values (2, 'Headshot', 'fusce', 5.34);
-insert into movies (id, title, description_movie, price) values (3, 'Eden Log', 'id', 6.65);
-insert into movies (id, title, description_movie, price) values (4, 'Countess from Hong Kong, A', 'vestibulum sed', 1.14);
-insert into movies (id, title, description_movie, price) values (5, 'Home Movie', 'non lectus', 7.94);
-insert into movies (id, title, description_movie, price) values (6, 'Shot in the Dark, A', 'mi sit', 8.69);
-insert into movies (id, title, description_movie, price) values (7, 'Immortel (ad vitam) (Immortal)', 'in ante vestibulum', 9.52);
-insert into movies (id, title, description_movie, price) values (8, 'Jubilation Street', 'nec condimentum', 4.23);
-insert into movies (id, title, description_movie, price) values (9, 'Peas at 5:30 (Erbsen auf halb 6)', 'cras in purus', 7.2);
-insert into movies (id, title, description_movie, price) values (10, 'Murder à la Mod', 'id', 6.77);
-insert into movies (id, title, description_movie, price) values (11, 'Two Shots Fired', 'elit ac', 5.75);
-insert into movies (id, title, description_movie, price) values (12, 'Zerophilia', 'dapibus duis', 9.86);
-insert into movies (id, title, description_movie, price) values (13, 'Dr. Dolittle', 'curae nulla dapibus', 7.48);
-insert into movies (id, title, description_movie, price) values (14, 'Round Up, The (La Rafle)', 'iaculis congue vivamus', 5.53);
-insert into movies (id, title, description_movie, price) values (15, 'Wanderers', 'vestibulum sit', 6.64);
-insert into movies (id, title, description_movie, price) values (16, 'New Rose Hotel', 'at vulputate vitae', 8.41);
-insert into movies (id, title, description_movie, price) values (17, 'Wedding Weekend, The (Sing Now or Forever Hold Your Peace) (Shut Up and Sing)', 'vulputate elementum nullam', 3.19);
-insert into movies (id, title, description_movie, price) values (18, 'Distinguished Gentleman, The', 'rhoncus mauris', 2.68);
-insert into movies (id, title, description_movie, price) values (19, 'Accidental Golfer, The (Den ofrivillige golfaren)', 'vestibulum ante', 5.17);
-insert into movies (id, title, description_movie, price) values (20, 'Body Snatcher, The', 'id', 4.63);
-insert into movies (id, title, description_movie, price) values (21, 'Diamond Arm, The (Brilliantovaya ruka)', 'nulla suspendisse potenti', 7.77);
-insert into movies (id, title, description_movie, price) values (22, 'American Gigolo', 'diam erat', 1.36);
-insert into movies (id, title, description_movie, price) values (23, 'Lust for Life', 'aenean lectus pellentesque', 8.08);
-insert into movies (id, title, description_movie, price) values (24, 'Jump Tomorrow', 'sollicitudin mi', 4.95);
-insert into movies (id, title, description_movie, price) values (25, 'San Antonio', 'metus aenean', 7.12);
-insert into movies (id, title, description_movie, price) values (26, 'Nirvana', 'maecenas', 7.0);
-insert into movies (id, title, description_movie, price) values (27, 'Follow Me, Boys!', 'ac', 3.91);
-insert into movies (id, title, description_movie, price) values (28, 'Legend of the Eight Samurai (Satomi hakken-den)', 'elementum', 4.92);
-insert into movies (id, title, description_movie, price) values (29, 'Saratoga', 'dui', 5.09);
-insert into movies (id, title, description_movie, price) values (30, 'San Quentin', 'nunc proin at', 6.92);
-insert into movies (id, title, description_movie, price) values (31, 'Batman', 'aliquet', 9.01);
-insert into movies (id, title, description_movie, price) values (32, 'Maverick', 'pede posuere nonummy', 6.26);
-insert into movies (id, title, description_movie, price) values (33, 'Pokemon 4 Ever (a.k.a. Pokémon 4: The Movie)', 'neque', 9.2);
-insert into movies (id, title, description_movie, price) values (34, 'Femme Fatale', 'turpis', 2.98);
-insert into movies (id, title, description_movie, price) values (35, 'Boys Love', 'felis', 6.44);
-insert into movies (id, title, description_movie, price) values (36, 'Black Tights (1-2-3-4 ou Les Collants noirs)', 'ut', 2.77);
-insert into movies (id, title, description_movie, price) values (37, 'The Way He Looks', 'vestibulum sagittis sapien', 6.59);
-insert into movies (id, title, description_movie, price) values (38, 'Don''s Plum', 'malesuada in imperdiet', 8.48);
-insert into movies (id, title, description_movie, price) values (39, 'Flowers of St. Francis (Francesco, giullare di Dio)', 'diam nam', 2.62);
-insert into movies (id, title, description_movie, price) values (40, 'Violent Saturday', 'urna pretium', 6.96);
-insert into movies (id, title, description_movie, price) values (41, 'Last Exit to Brooklyn', 'turpis integer', 8.32);
-insert into movies (id, title, description_movie, price) values (42, 'Ironclad', 'turpis', 4.62);
-insert into movies (id, title, description_movie, price) values (43, 'Klown: The Movie (Klovn)', 'quis odio', 3.05);
-insert into movies (id, title, description_movie, price) values (44, 'Kounterfeit', 'accumsan felis ut', 1.4);
-insert into movies (id, title, description_movie, price) values (45, 'In the Loop', 'luctus et ultrices', 5.93);
-insert into movies (id, title, description_movie, price) values (46, 'Snow Falling on Cedars', 'primis in faucibus', 6.42);
-insert into movies (id, title, description_movie, price) values (47, 'Broken Lance', 'non ligula pellentesque', 9.8);
-insert into movies (id, title, description_movie, price) values (48, 'Chain Camera', 'luctus', 8.83);
-insert into movies (id, title, description_movie, price) values (49, 'Smurfs 2, The', 'luctus', 7.77);
-insert into movies (id, title, description_movie, price) values (50, 'Billy Liar', 'metus vitae', 9.62);
-insert into movies (id, title, description_movie, price) values (51, 'Born on the Fourth of July', 'eu', 9.37);
-insert into movies (id, title, description_movie, price) values (52, 'Back to Bataan', 'vitae quam', 4.66);
-insert into movies (id, title, description_movie, price) values (53, 'Midnight in the Garden of Good and Evil', 'ac nibh fusce', 3.23);
-insert into movies (id, title, description_movie, price) values (54, 'The Fuller Brush Man', 'diam vitae quam', 4.88);
-insert into movies (id, title, description_movie, price) values (55, 'Man of Iron (Czlowiek z Zelaza)', 'ullamcorper', 7.75);
-insert into movies (id, title, description_movie, price) values (56, 'Heaven Can Wait', 'ultrices', 5.13);
-insert into movies (id, title, description_movie, price) values (57, 'Great Gatsby, The', 'semper', 4.14);
-insert into movies (id, title, description_movie, price) values (58, 'Rolling', 'diam neque vestibulum', 4.84);
-insert into movies (id, title, description_movie, price) values (59, 'Don''t Come Knocking', 'donec', 9.45);
-insert into movies (id, title, description_movie, price) values (60, 'Seventh Horse of the Sun  (Suraj Ka Satvan Ghoda)', 'sollicitudin', 8.97);
-insert into movies (id, title, description_movie, price) values (61, 'Novena, The (La neuvaine)', 'a libero nam', 3.4);
-insert into movies (id, title, description_movie, price) values (62, 'Rocky', 'quam', 6.68);
-insert into movies (id, title, description_movie, price) values (63, 'Sleep Room, The', 'elit', 4.99);
-insert into movies (id, title, description_movie, price) values (64, 'My Brother the Devil', 'nulla elit ac', 1.54);
-insert into movies (id, title, description_movie, price) values (65, 'EXPO: Magic of the White City', 'dignissim', 6.16);
-insert into movies (id, title, description_movie, price) values (66, 'Volver', 'feugiat', 5.94);
-insert into movies (id, title, description_movie, price) values (67, 'Mood Indigo (L''écume des jours)', 'velit eu est', 8.15);
-insert into movies (id, title, description_movie, price) values (68, 'Drive, He Said', 'mollis', 4.83);
-insert into movies (id, title, description_movie, price) values (69, 'Bloomington', 'felis', 4.91);
-insert into movies (id, title, description_movie, price) values (70, 'Let the Good Times Roll', 'augue', 9.65);
-insert into movies (id, title, description_movie, price) values (71, 'Investigating Sex (a.k.a. Intimate Affairs)', 'potenti in', 9.84);
-insert into movies (id, title, description_movie, price) values (72, 'Oliver & Company', 'in quam', 1.02);
-insert into movies (id, title, description_movie, price) values (73, 'Joanna', 'mauris enim leo', 5.8);
-insert into movies (id, title, description_movie, price) values (74, 'Paycheck', 'fusce lacus purus', 4.05);
-insert into movies (id, title, description_movie, price) values (75, 'Jolson Story, The', 'potenti nullam porttitor', 5.68);
-insert into movies (id, title, description_movie, price) values (76, 'Double Life of Veronique, The (Double Vie de Véronique, La)', 'curabitur at ipsum', 2.82);
-insert into movies (id, title, description_movie, price) values (77, 'Luther the Geek', 'amet cursus id', 2.24);
-insert into movies (id, title, description_movie, price) values (78, 'Trancers II', 'molestie', 5.99);
-insert into movies (id, title, description_movie, price) values (79, 'Salaam-E-Ishq', 'eget massa tempor', 5.32);
-insert into movies (id, title, description_movie, price) values (80, 'TV Set, The', 'est donec', 8.39);
-insert into movies (id, title, description_movie, price) values (81, 'Shadowlands', 'justo etiam', 7.68);
-insert into movies (id, title, description_movie, price) values (82, 'You Don''t Know Jack', 'ultrices enim lorem', 8.94);
-insert into movies (id, title, description_movie, price) values (83, 'Back Stage', 'sodales sed tincidunt', 2.34);
-insert into movies (id, title, description_movie, price) values (84, 'Made in America', 'suscipit a feugiat', 4.89);
-insert into movies (id, title, description_movie, price) values (85, 'Breakfast Club, The', 'elit proin', 7.46);
-insert into movies (id, title, description_movie, price) values (86, 'Laurel Canyon', 'justo sollicitudin', 7.9);
-insert into movies (id, title, description_movie, price) values (87, 'Foodfight!', 'aenean', 2.13);
-insert into movies (id, title, description_movie, price) values (88, 'Glorious Technicolor', 'sed interdum venenatis', 3.14);
-insert into movies (id, title, description_movie, price) values (89, 'Silmido', 'justo', 3.98);
-insert into movies (id, title, description_movie, price) values (90, 'Casanova ''70', 'tellus semper interdum', 7.61);
-insert into movies (id, title, description_movie, price) values (91, 'Notorious', 'erat quisque', 6.8);
-insert into movies (id, title, description_movie, price) values (92, 'Cinderella', 'sapien sapien non', 4.36);
-insert into movies (id, title, description_movie, price) values (93, 'Hard, Fast and Beautiful', 'cubilia', 1.57);
-insert into movies (id, title, description_movie, price) values (94, 'Such Is Life (Así es la vida...)', 'nulla ac', 5.49);
-insert into movies (id, title, description_movie, price) values (95, 'Six Days Seven Nights', 'porttitor pede justo', 8.85);
-insert into movies (id, title, description_movie, price) values (96, 'High Test Girls', 'tempor', 6.94);
-insert into movies (id, title, description_movie, price) values (97, 'Sleep Tight (Mientras duermes)', 'morbi', 3.43);
-insert into movies (id, title, description_movie, price) values (98, 'Tailor of Panama, The', 'eget tempus', 2.69);
-insert into movies (id, title, description_movie, price) values (99, '7 Virgins (7 vírgenes)', 'vitae ipsum', 6.5);
-insert into movies (id, title, description_movie, price) values (100, 'Night to Remember, A', 'mauris lacinia sapien', 4.65);
+-- --------------------------------------------------------
 
-create table category_movie (
-	id_category INT,
-	id_movies INT,
+--
+-- Estructura de tabla para la tabla `category`
+--
 
-constraint pk_category_movie primary key (id_category, id_movies),
-constraint fk_category_movie foreign key (id_category) references category (id),
-constraint fk_category_movie2 foreign key (id_movies) references movies (id)
+CREATE TABLE `category` (
+  `id` int(11) NOT NULL,
+  `genres` varchar(50) NOT NULL,
+  `description_category` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Volcado de datos para la tabla `category`
+--
 
-);
+INSERT INTO `category` (`id`, `genres`, `description_category`) VALUES
+(1, 'Adventure|Animation|Children|Comedy', 'nulla pede ullamcorper'),
+(2, 'Adventure|Thriller', 'at nibh in'),
+(3, 'Adventure', 'ornare imperdiet sapien'),
+(4, 'Crime|Thriller', 'viverra dapibus nulla'),
+(5, 'Drama|Romance', 'consequat in consequat'),
+(6, 'Drama', 'elementum pellentesque quisque'),
+(7, 'Crime|Drama', 'amet consectetuer adipiscing'),
+(8, 'Drama', 'mauris viverra diam'),
+(9, 'Drama', 'dapibus augue vel'),
+(10, 'Comedy|Fantasy', 'porta volutpat quam'),
+(11, 'Drama', 'nec molestie sed'),
+(12, 'Drama|Mystery|Thriller', 'quam sollicitudin vitae'),
+(13, 'Action|Adventure|Animation|Children', 'quis orci eget'),
+(14, 'Comedy', 'sem praesent id'),
+(15, 'Drama', 'nisi at nibh'),
+(16, 'Action|Adventure|Drama|Fantasy|IMAX', 'ultrices posuere cubilia'),
+(17, 'Comedy', 'vulputate luctus cum'),
+(18, 'Action|Comedy', 'eu massa donec'),
+(19, 'Action|Drama', 'elit proin interdum'),
+(20, 'Animation', 'sed interdum venenatis');
 
-insert into category_movie (id_category, id_movies) values (1, 1);
-insert into category_movie (id_category, id_movies) values (2, 2);
-insert into category_movie (id_category, id_movies) values (3, 3);
-insert into category_movie (id_category, id_movies) values (4, 4);
-insert into category_movie (id_category, id_movies) values (5, 5);
-insert into category_movie (id_category, id_movies) values (6, 6);
-insert into category_movie (id_category, id_movies) values (7, 7);
-insert into category_movie (id_category, id_movies) values (8, 8);
-insert into category_movie (id_category, id_movies) values (9, 9);
-insert into category_movie (id_category, id_movies) values (10, 10);
-insert into category_movie (id_category, id_movies) values (11, 11);
-insert into category_movie (id_category, id_movies) values (12, 12);
-insert into category_movie (id_category, id_movies) values (13, 13);
-insert into category_movie (id_category, id_movies) values (14, 14);
-insert into category_movie (id_category, id_movies) values (15, 15);
-insert into category_movie (id_category, id_movies) values (16, 16);
-insert into category_movie (id_category, id_movies) values (17, 17);
-insert into category_movie (id_category, id_movies) values (18, 18);
-insert into category_movie (id_category, id_movies) values (19, 19);
-insert into category_movie (id_category, id_movies) values (20, 20);
-insert into category_movie (id_category, id_movies) values (21, 21);
-insert into category_movie (id_category, id_movies) values (22, 22);
-insert into category_movie (id_category, id_movies) values (23, 23);
-insert into category_movie (id_category, id_movies) values (24, 24);
-insert into category_movie (id_category, id_movies) values (25, 25);
-insert into category_movie (id_category, id_movies) values (26, 26);
-insert into category_movie (id_category, id_movies) values (27, 27);
-insert into category_movie (id_category, id_movies) values (28, 28);
-insert into category_movie (id_category, id_movies) values (29, 29);
-insert into category_movie (id_category, id_movies) values (30, 30);
-insert into category_movie (id_category, id_movies) values (31, 31);
-insert into category_movie (id_category, id_movies) values (32, 32);
-insert into category_movie (id_category, id_movies) values (33, 33);
-insert into category_movie (id_category, id_movies) values (34, 34);
-insert into category_movie (id_category, id_movies) values (35, 35);
-insert into category_movie (id_category, id_movies) values (36, 36);
-insert into category_movie (id_category, id_movies) values (37, 37);
-insert into category_movie (id_category, id_movies) values (38, 38);
-insert into category_movie (id_category, id_movies) values (39, 39);
-insert into category_movie (id_category, id_movies) values (40, 40);
-insert into category_movie (id_category, id_movies) values (41, 41);
-insert into category_movie (id_category, id_movies) values (42, 42);
-insert into category_movie (id_category, id_movies) values (43, 43);
-insert into category_movie (id_category, id_movies) values (44, 44);
-insert into category_movie (id_category, id_movies) values (45, 45);
-insert into category_movie (id_category, id_movies) values (46, 46);
-insert into category_movie (id_category, id_movies) values (47, 47);
-insert into category_movie (id_category, id_movies) values (48, 48);
-insert into category_movie (id_category, id_movies) values (49, 49);
-insert into category_movie (id_category, id_movies) values (50, 50);
-insert into category_movie (id_category, id_movies) values (51, 51);
-insert into category_movie (id_category, id_movies) values (52, 52);
-insert into category_movie (id_category, id_movies) values (53, 53);
-insert into category_movie (id_category, id_movies) values (54, 54);
-insert into category_movie (id_category, id_movies) values (55, 55);
-insert into category_movie (id_category, id_movies) values (56, 56);
-insert into category_movie (id_category, id_movies) values (57, 57);
-insert into category_movie (id_category, id_movies) values (58, 58);
-insert into category_movie (id_category, id_movies) values (59, 59);
-insert into category_movie (id_category, id_movies) values (60, 60);
-insert into category_movie (id_category, id_movies) values (61, 61);
-insert into category_movie (id_category, id_movies) values (62, 62);
-insert into category_movie (id_category, id_movies) values (63, 63);
-insert into category_movie (id_category, id_movies) values (64, 64);
-insert into category_movie (id_category, id_movies) values (65, 65);
-insert into category_movie (id_category, id_movies) values (66, 66);
-insert into category_movie (id_category, id_movies) values (67, 67);
-insert into category_movie (id_category, id_movies) values (68, 68);
-insert into category_movie (id_category, id_movies) values (69, 69);
-insert into category_movie (id_category, id_movies) values (70, 70);
-insert into category_movie (id_category, id_movies) values (71, 71);
-insert into category_movie (id_category, id_movies) values (72, 72);
-insert into category_movie (id_category, id_movies) values (73, 73);
-insert into category_movie (id_category, id_movies) values (74, 74);
-insert into category_movie (id_category, id_movies) values (75, 75);
-insert into category_movie (id_category, id_movies) values (76, 76);
-insert into category_movie (id_category, id_movies) values (77, 77);
-insert into category_movie (id_category, id_movies) values (78, 78);
-insert into category_movie (id_category, id_movies) values (79, 79);
-insert into category_movie (id_category, id_movies) values (80, 80);
-insert into category_movie (id_category, id_movies) values (81, 81);
-insert into category_movie (id_category, id_movies) values (82, 82);
-insert into category_movie (id_category, id_movies) values (83, 83);
-insert into category_movie (id_category, id_movies) values (84, 84);
-insert into category_movie (id_category, id_movies) values (85, 85);
-insert into category_movie (id_category, id_movies) values (86, 86);
-insert into category_movie (id_category, id_movies) values (87, 87);
-insert into category_movie (id_category, id_movies) values (88, 88);
-insert into category_movie (id_category, id_movies) values (89, 89);
-insert into category_movie (id_category, id_movies) values (90, 90);
-insert into category_movie (id_category, id_movies) values (91, 91);
-insert into category_movie (id_category, id_movies) values (92, 92);
-insert into category_movie (id_category, id_movies) values (93, 93);
-insert into category_movie (id_category, id_movies) values (94, 94);
-insert into category_movie (id_category, id_movies) values (95, 95);
-insert into category_movie (id_category, id_movies) values (96, 96);
-insert into category_movie (id_category, id_movies) values (97, 97);
-insert into category_movie (id_category, id_movies) values (98, 98);
-insert into category_movie (id_category, id_movies) values (99, 99);
-insert into category_movie (id_category, id_movies) values (100, 100);
+-- --------------------------------------------------------
 
-create table users (
-	username VARCHAR(50),
-	password VARCHAR(50),
-	first_name VARCHAR(50),
-	last_name VARCHAR(50),
-	date DATE,
-	gender VARCHAR(50),
-	admin  TINYINT(1),
+--
+-- Estructura de tabla para la tabla `movies`
+--
 
-constraint pk_users primary key (username)
+CREATE TABLE `movies` (
+  `id` int(11) NOT NULL,
+  `title` varchar(100) NOT NULL,
+  `description_movie` varchar(100) NOT NULL,
+  `price` double NOT NULL,
+  `category_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-);
+--
+-- Volcado de datos para la tabla `movies`
+--
 
-insert into users (username, password, first_name, last_name, date, gender, admin) values ('inma', MD5('inma'), 'inma', 'olias', '1965-12-30', 'Female', 1);
-insert into users (username, password, first_name, last_name, date, gender, admin) values ('javi', MD5('javi'), 'sergio', 'romero', '2004-03-28', 'Male', 0);
+INSERT INTO `movies` (`id`, `title`, `description_movie`, `price`, `category_id`) VALUES
+(1, 'Indian Summer (a.k.a. The Professor) (La prima notte di quiete)', 'duis', 2.39, 18),
+(2, 'Beyond the Poseidon Adventure', 'justo lacinia eget', 1.68, 13),
+(3, 'How to Eat Your Watermelon in White Company (and Enjoy It)', 'habitasse', 5.12, 19),
+(4, 'Knights of Badassdom', 'phasellus', 9.29, 16),
+(5, 'Dread', 'aenean sit', 3.02, 17),
+(6, 'Emperor s New Groove 2: Kronk s New Groove, The', 'sapien cursus vestibulum', 4.81, 4),
+(7, 'The Dancer', 'viverra eget congue', 1.04, 17),
+(8, 'Zebraman', 'ipsum ac tellus', 2.79, 14),
+(9, 'Night of the Living Dead 3D', 'dolor sit', 2.74, 11),
+(10, 'Star Wars: Episode I - The Phantom Menace', 'pede ullamcorper', 4.59, 17),
+(11, 'Bela Kiss: Prologue', 'erat nulla', 8.16, 13),
+(12, 'Seven Beauties (Pasqualino Settebellezze)', 'ac enim', 6.89, 5),
+(13, 'Night Walker, The', 'volutpat sapien', 3.3, 13),
+(14, 'Pekko ja unissakävelijä', 'id nulla ultrices', 4.31, 20),
+(15, 'Trick', 'integer', 3.94, 19),
+(16, 'Wise Guys', 'dolor sit amet', 8.13, 3),
+(17, 'Great Mouse Detective, The', 'at dolor', 3.45, 7),
+(18, 'Partners: The Movie II (Aibô: Gekijô-ban II)', 'at', 5.07, 8),
+(19, 'End of Suburbia: Oil Depletion and the Collapse of the American Dream', 'iaculis', 1.26, 1),
+(20, 'Serbian Film, A (Srpski film)', 'viverra pede ac', 1.7, 8),
+(21, 'The Face Behind the Mask', 'turpis enim blandit', 3.58, 10),
+(22, 'Five Easy Pieces', 'semper est', 6.65, 18),
+(23, 'The Diary of Preston Plummer', 'varius integer ac', 8.36, 4),
+(24, 'Detective Dee and the Mystery of the Phantom Flame (Di Renjie)', 'turpis', 2.14, 7),
+(25, 'Son of Monte Cristo, The', 'lorem', 6.05, 18),
+(26, 'Boy Eats Girl', 'faucibus orci', 2.04, 14),
+(27, 'Santa Claus', 'convallis duis', 7.61, 12),
+(28, 'We ll Never Have Paris', 'vestibulum', 5.01, 3),
+(29, 'Bon Voyage, Charlie Brown and Don t Come Back!', 'vestibulum', 3.94, 2),
+(30, 'Talent Given Us, The', 'dolor sit', 1.37, 19),
+(31, 'Changeling', 'ut', 1.73, 13),
+(32, 'Rock the Boat', 'consequat', 1.62, 14),
+(33, 'High Art', 'quam', 3.58, 10),
+(34, 'Koti-ikävä', 'volutpat eleifend donec', 5.26, 4),
+(35, 'Auschwitz: The Nazis and the Final Solution', 'velit nec nisi', 9.54, 3),
+(36, 'Foodfight!', 'orci', 8.64, 15),
+(37, 'Crips and Bloods: Made in America', 'justo', 4.68, 10),
+(38, 'Thursday', 'eget rutrum at', 6.58, 19),
+(39, 'Back to the Future Part III', 'diam nam', 7.21, 19),
+(40, 'Boys Next Door, The', 'etiam', 4.14, 20),
+(41, 'Cambridge Spies', 'donec', 6.81, 3),
+(42, 'Fjorton suger', 'vulputate vitae nisl', 9.95, 5),
+(43, 'Report, The (Gozaresh)', 'luctus et ultrices', 7.46, 18),
+(44, 'Yolki', 'lacus', 6.56, 6),
+(45, 'Twenty-Four Eyes (Nijûshi no hitomi)', 'vulputate', 8.19, 18),
+(46, 'Source Family, The', 'mauris non ligula', 5.39, 18),
+(47, 'Perfume', 'accumsan', 1.72, 10),
+(48, 'Long Voyage Home, The', 'in libero', 4.16, 15),
+(49, 'Arthur Christmas', 'est et tempus', 3.57, 16),
+(50, 'Kaboom', 'proin', 1.92, 14),
+(51, 'Dragonslayer', 'consequat lectus in', 8.84, 15),
+(52, 'Homesman, The', 'eget vulputate ut', 6.5, 4),
+(53, 'Mr. Wonderful', 'augue', 8.21, 6),
+(54, 'Arsène Lupin', 'nisl venenatis', 2.28, 14),
+(55, 'Chill Factor', 'ante ipsum', 7.64, 11),
+(56, 'Flodder', 'donec vitae', 2.43, 1),
+(57, 'Peter Ibbetson', 'mollis molestie', 6.04, 13),
+(58, 'Spy(ies) (Espion(s))', 'sapien cursus', 6.76, 1),
+(59, 'The Blue Room', 'dapibus', 5.65, 10),
+(60, 'Zatoichi s Flashing Sword (Zatôichi abare tako) (Zatôichi 7)', 'maecenas leo', 4.35, 2),
+(61, 'C.R.A.Z.Y.', 'nisi nam ultrices', 2.32, 3),
+(62, 'Wrestler, The (Painija)', 'ultrices posuere', 3.26, 3),
+(63, 'Foodfight!', 'velit', 7.23, 19),
+(64, 'Unthinkable', 'sit', 9.54, 13),
+(65, 'I Love You Too (Ik ook Van Jou)', 'ligula suspendisse', 6.15, 2),
+(66, 'Village Barbershop, The', 'nascetur ridiculus', 1.49, 6),
+(67, 'How to Train Your Dragon', 'consequat dui', 9.01, 20),
+(68, 'Knockaround Guys', 'rutrum rutrum', 8.41, 7),
+(69, 'Pancho, the Millionaire Dog', 'suscipit a', 1.58, 16),
+(70, 'All This, and Heaven Too', 'velit id pretium', 4.05, 1),
+(71, 'Alien Space Avenger', 'amet sem', 2.64, 3),
+(72, 'Going Clear: Scientology and the Prison of Belief', 'vestibulum', 9.55, 13),
+(73, 'Planet B-Boy', 'metus', 8.24, 1),
+(74, 'House Is Black, The', 'nisl venenatis', 1.96, 18),
+(75, 'Laws of Gravity', 'lorem', 9.67, 13),
+(76, 'Clown, The', 'vulputate elementum', 8.12, 14),
+(77, 'Wanderlust', 'orci luctus et', 5.03, 7),
+(78, 'Runaway', 'magnis dis', 4.95, 6),
+(79, 'Cat People', 'donec', 5.71, 9),
+(80, 'Movie Movie', 'praesent lectus vestibulum', 8.42, 15),
+(81, 'Ju-on: The Curse 2', 'mauris vulputate elementum', 6.75, 17),
+(82, '101 Dalmatians II: Patch s London Adventure', 'ullamcorper', 9.63, 2),
+(83, 'Splendor', 'magna bibendum imperdiet', 5.1, 12),
+(84, 'Children s Hour, The', 'erat', 9.71, 1),
+(85, 'Above and Beyond', 'ligula vehicula consequat', 7.74, 16),
+(86, 'Big City Blues', 'maecenas', 3, 20),
+(87, 'Dom Hemingway', 'turpis', 9.37, 5),
+(88, 'Rewrite, The', 'dignissim vestibulum vestibulum', 5.8, 9),
+(89, 'Fame', 'mauris vulputate', 3.22, 15),
+(90, 'No Good Deed (a.k.a. The House on Turk Street)', 'sagittis dui', 4.42, 1),
+(91, 'Echoes of the Rainbow (Sui yuet san tau)', 'etiam pretium', 4.8, 16),
+(92, 'Samaritan Girl (Samaria)', 'nisi nam', 5.11, 16),
+(93, 'Post Grad', 'congue', 9.36, 19),
+(94, 'Hi, Mom!', 'amet consectetuer', 5.03, 13),
+(95, 'Gregory Go Boom', 'in quis', 5.66, 9),
+(96, 'Árido Movie', 'rutrum at', 8.38, 5),
+(97, 'Chiedimi se sono felice', 'vulputate ut ultrices', 2.64, 8),
+(98, 'Frankenhooker', 'elementum eu', 8.59, 13),
+(99, 'Sergeant Körmy and the Underwater Vehicles (Vääpeli Körmy ja vetenalaiset vehkeet)', 'ridiculus', 2.84, 5),
+(100, 'Trailer Park Jesus', 'ac lobortis vel', 9.36, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `purchase`
+--
+
+CREATE TABLE `purchase` (
+  `cod` int(11) NOT NULL,
+  `price` double NOT NULL,
+  `user` varchar(100) NOT NULL,
+  `date` date NOT NULL,
+  `quantity` int(11) NOT NULL,
+  `id_movie` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `purchase`
+--
+
+INSERT INTO `purchase` (`cod`, `price`, `user`, `date`, `quantity`, `id_movie`) VALUES
+(1, 1.15, 'lcosgry1', '1989-06-26', 97, 42),
+(2, 4.37, 'vligertwood0', '2016-07-19', 43, 40),
+(3, 1.14, 'wburroughes7', '1989-08-07', 58, 29),
+(4, 5.83, 'kwright3', '1983-01-18', 89, 71),
+(5, 1.95, 'rmacellar6', '2015-11-07', 94, 69),
+(6, 7.17, 'wburroughes7', '1999-08-28', 83, 84),
+(7, 3.89, 'ghebbes8', '1983-07-14', 71, 72),
+(8, 9.38, 'vligertwood0', '1985-08-15', 1, 26),
+(9, 9.99, 'wburroughes7', '1994-11-08', 28, 3),
+(10, 8.38, 'lcosgry1', '1991-06-09', 35, 5),
+(11, 4.06, 'kwright3', '1992-06-25', 68, 31),
+(12, 7.48, 'wburroughes7', '2006-05-19', 32, 36),
+(13, 7.36, 'vligertwood0', '2022-11-04', 46, 4),
+(14, 3.34, 'dcorse4', '1987-02-07', 77, 89),
+(15, 4.28, 'ghebbes8', '2001-12-17', 14, 30),
+(16, 7.77, 'wburroughes7', '2022-05-13', 34, 28),
+(17, 3.91, 'kwright3', '1994-05-17', 34, 44),
+(18, 6.33, 'vligertwood0', '2003-08-11', 21, 8),
+(19, 2.14, 'lanniwell9', '1989-03-10', 95, 31),
+(20, 2.86, 'dcorse4', '2007-09-13', 47, 90),
+(21, 1.97, 'dcorse4', '2022-02-04', 62, 59),
+(22, 7.4, 'rmacellar6', '1994-11-11', 20, 76),
+(23, 2.11, 'kwright3', '2000-03-10', 46, 32),
+(24, 7.89, 'dcorse4', '2007-12-15', 30, 69),
+(25, 7.19, 'rmacellar6', '1984-04-04', 67, 95),
+(26, 4.32, 'dcorse4', '1998-12-06', 42, 97),
+(27, 1.74, 'lcosgry1', '2013-11-25', 28, 35),
+(28, 3.53, 'lcosgry1', '1995-01-28', 28, 46),
+(29, 9.8, 'wburroughes7', '1984-08-15', 100, 87),
+(30, 9.37, 'lanniwell9', '2018-06-18', 61, 93),
+(31, 8.44, 'vligertwood0', '1981-12-31', 26, 89),
+(32, 1.28, 'scarine5', '2006-12-30', 99, 72),
+(33, 7.27, 'lcosgry1', '1999-03-20', 62, 75),
+(34, 7.61, 'ghebbes8', '2014-12-15', 63, 40),
+(35, 6.61, 'ghebbes8', '1997-05-16', 49, 39),
+(36, 1.01, 'dcorse4', '2022-05-21', 25, 33),
+(37, 8.92, 'wburroughes7', '2007-06-11', 99, 51),
+(38, 5.42, 'ilosbie2', '2011-09-14', 93, 36),
+(39, 9.24, 'rmacellar6', '1986-01-29', 24, 81),
+(40, 1.44, 'ghebbes8', '2010-12-02', 39, 20),
+(41, 8.21, 'dcorse4', '2021-05-06', 34, 94),
+(42, 2.13, 'ghebbes8', '1983-09-08', 26, 87),
+(43, 9.88, 'vligertwood0', '1989-11-24', 40, 7),
+(44, 1.96, 'rmacellar6', '2021-04-01', 66, 17),
+(45, 2.86, 'rmacellar6', '2005-10-12', 62, 71),
+(46, 9.66, 'dcorse4', '2015-06-24', 90, 72),
+(47, 6.33, 'vligertwood0', '1997-04-27', 55, 10),
+(48, 2.85, 'vligertwood0', '2004-02-18', 48, 56),
+(49, 8.62, 'wburroughes7', '2020-07-20', 19, 13),
+(50, 2.07, 'rmacellar6', '1995-09-16', 3, 82),
+(51, 5.1, 'vligertwood0', '2005-10-23', 67, 83),
+(52, 6.26, 'wburroughes7', '1983-07-18', 33, 23),
+(53, 4.16, 'dcorse4', '1988-06-23', 44, 89),
+(54, 8.79, 'scarine5', '1985-07-18', 69, 2),
+(55, 3.05, 'lcosgry1', '2020-04-09', 65, 90),
+(56, 9.94, 'lcosgry1', '2019-10-29', 85, 59),
+(57, 1.12, 'wburroughes7', '1988-06-09', 2, 94),
+(58, 4.48, 'vligertwood0', '2014-12-21', 82, 13),
+(59, 8.26, 'ghebbes8', '2011-11-10', 14, 17),
+(60, 7.48, 'wburroughes7', '2017-02-11', 35, 91),
+(61, 4.8, 'rmacellar6', '1991-12-28', 27, 71),
+(62, 1.63, 'rmacellar6', '1992-12-13', 1, 88),
+(63, 4.12, 'kwright3', '1992-10-11', 74, 89),
+(64, 1.23, 'lanniwell9', '1987-04-10', 12, 26),
+(65, 2.9, 'lanniwell9', '1999-08-30', 1, 20),
+(66, 8.95, 'ghebbes8', '1999-02-28', 31, 5),
+(67, 8.93, 'rmacellar6', '2005-02-25', 3, 89),
+(68, 5.39, 'ilosbie2', '2002-07-02', 96, 9),
+(69, 8.38, 'dcorse4', '1981-11-18', 79, 70),
+(70, 5.41, 'vligertwood0', '2016-06-29', 100, 60),
+(71, 1.91, 'lcosgry1', '2013-03-12', 83, 13),
+(72, 9.05, 'kwright3', '1990-10-29', 24, 58),
+(73, 1.87, 'vligertwood0', '2002-11-21', 1, 40),
+(74, 8.16, 'kwright3', '1981-06-21', 43, 47),
+(75, 2.47, 'ilosbie2', '1988-02-22', 83, 61),
+(76, 8.35, 'lanniwell9', '1982-04-06', 20, 21),
+(77, 1.5, 'rmacellar6', '1988-09-14', 70, 76),
+(78, 4.02, 'vligertwood0', '1992-04-09', 85, 78),
+(79, 9.36, 'wburroughes7', '2001-09-22', 2, 52),
+(80, 2.12, 'rmacellar6', '2015-06-25', 11, 33),
+(81, 2.88, 'ilosbie2', '1987-12-06', 7, 41),
+(82, 2.74, 'scarine5', '2008-01-28', 47, 39),
+(83, 3.26, 'wburroughes7', '2013-06-27', 40, 13),
+(84, 6.71, 'ghebbes8', '2021-02-08', 23, 48),
+(85, 8.71, 'ghebbes8', '1998-09-02', 59, 24),
+(86, 6, 'wburroughes7', '2002-08-02', 68, 91),
+(87, 9.43, 'vligertwood0', '2019-09-19', 12, 14),
+(88, 6.74, 'scarine5', '1989-03-13', 75, 10),
+(89, 2.45, 'rmacellar6', '1988-10-20', 86, 30),
+(90, 8.48, 'vligertwood0', '2015-10-24', 74, 100),
+(91, 7.84, 'ilosbie2', '1985-11-21', 61, 97),
+(92, 7.84, 'scarine5', '2012-02-15', 5, 66),
+(93, 9.43, 'rmacellar6', '2013-01-22', 20, 42),
+(94, 8.62, 'dcorse4', '2005-11-15', 63, 30),
+(95, 6.72, 'ilosbie2', '2003-11-09', 95, 9),
+(96, 9.45, 'dcorse4', '1991-11-07', 74, 62),
+(97, 7.99, 'ilosbie2', '1988-01-17', 53, 18),
+(98, 7.8, 'lanniwell9', '2000-12-31', 22, 51),
+(99, 1.44, 'scarine5', '2010-08-30', 82, 8),
+(100, 1.31, 'lcosgry1', '2020-05-25', 46, 52);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `users`
+--
+
+CREATE TABLE `users` (
+  `username` varchar(50) NOT NULL,
+  `password` varchar(100) NOT NULL,
+  `first_name` varchar(100) NOT NULL,
+  `last_name` varchar(100) NOT NULL,
+  `date` date NOT NULL,
+  `gender` varchar(50) NOT NULL,
+  `admin` tinyint(4) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `users`
+--
+
+INSERT INTO `users` (`username`, `password`, `first_name`, `last_name`, `date`, `gender`, `admin`) VALUES
+('dcorse4', '963b082393f0e79e0ba81134d338f95b', 'Dew', 'Corse', '1999-11-06', 'Male', 1),
+('ghebbes8', 'cefed397f3a144e057b59dee560f55f3', 'Georgetta', 'Hebbes', '2007-09-11', 'Female', 0),
+('ilosbie2', 'ac1f04920298f9cd7742465c23ec04aa', 'Isador', 'Losbie', '1988-08-15', 'Male', 1),
+('inma', 'd40dbcae0e7088fc4a7e1768cf8771da', 'inma', 'olias', '2012-11-01', 'Female', 1),
+('javi', 'a14f8a540e78dae706d255750010a0f8', 'javi', 'javi', '2012-11-02', 'Male', 1),
+('kwright3', 'f5c9784cbbffd7871de84ff391424492', 'Karin', 'Wright', '2012-09-17', 'Female', 0),
+('lanniwell9', '6099d1e905796f5fbce425f9604fa3a2', 'Lothario', 'Anniwell', '2003-04-08', 'Bigender', 0),
+('lcosgry1', '835698547ebeaa0ebb4e9c468dd02c15', 'Latia', 'Cosgry', '1993-01-13', 'Female', 0),
+('rmacellar6', 'c9b4958f13936ee0ad8b860c22810ff0', 'Roana', 'Macellar', '2001-05-21', 'Female', 1),
+('scarine5', '58bb3f1f545d2d3e58b294719d07838d', 'Sterne', 'Carine', '1997-05-02', 'Male', 0),
+('vligertwood0', '0eb4b476b24711c2eeefc7cb14c15953', 'Valentino', 'Ligertwood', '2012-05-20', 'Male', 0),
+('wburroughes7', '67951a8570c2f5db112cef9e4e8363c7', 'Wendy', 'Burroughes', '2012-06-14', 'Female', 0);
+
+--
+-- Índices para tablas volcadas
+--
+
+--
+-- Indices de la tabla `category`
+--
+ALTER TABLE `category`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `movies`
+--
+ALTER TABLE `movies`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `FK_movies` (`category_id`);
+
+--
+-- Indices de la tabla `purchase`
+--
+ALTER TABLE `purchase`
+  ADD PRIMARY KEY (`cod`,`user`,`id_movie`),
+  ADD KEY `user` (`user`),
+  ADD KEY `id_movie` (`id_movie`);
+
+--
+-- Indices de la tabla `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`username`);
+
+--
+-- Restricciones para tablas volcadas
+--
+
+--
+-- Filtros para la tabla `movies`
+--
+ALTER TABLE `movies`
+  ADD CONSTRAINT `FK_movies` FOREIGN KEY (`category_id`) REFERENCES `category` (`id`);
+
+--
+-- Filtros para la tabla `purchase`
+--
+ALTER TABLE `purchase`
+  ADD CONSTRAINT `purchase_ibfk_1` FOREIGN KEY (`user`) REFERENCES `users` (`username`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `purchase_ibfk_2` FOREIGN KEY (`id_movie`) REFERENCES `movies` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
+--
+--CREATE USER 'villarreal'@'%' IDENTIFIED BY 'vicen';
+--GRANT ALL PRIVILEGES ON MoviesVillarreal.* to 'villarreal'@'%';
