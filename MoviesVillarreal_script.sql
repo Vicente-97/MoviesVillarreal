@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: mysqlDawes:3306
--- Tiempo de generación: 07-11-2022 a las 10:51:49
+-- Tiempo de generación: 08-11-2022 a las 08:21:31
 -- Versión del servidor: 5.7.22
 -- Versión de PHP: 8.0.19
 
@@ -19,8 +19,14 @@ SET time_zone = "+00:00";
 
 --
 -- Base de datos: `MoviesVillarreal`
---
 
+--EJECUTAR ESTE SCRIPT EN PHP.MYADMIN.NET , EN EL APARTADO "NUEVA". NO EJECUTAR EN UNA BASE DE DATOS YA EXISTENTE.
+CREATE DATABASE MoviesVillarreal;
+
+USE `MoviesVillarreal`;
+--
+ CREATE USER 'villarreal'@'%' IDENTIFIED BY 'vicente';
+ GRANT ALL PRIVILEGES ON MoviesVillarreal.* to 'villarreal'@'%';
 -- --------------------------------------------------------
 
 --
@@ -32,6 +38,7 @@ CREATE TABLE `category` (
   `genres` varchar(50) NOT NULL,
   `description_category` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 
 --
 -- Volcado de datos para la tabla `category`
@@ -73,7 +80,7 @@ CREATE TABLE `movies` (
   `category_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
+
 -- Volcado de datos para la tabla `movies`
 --
 
@@ -140,7 +147,7 @@ INSERT INTO `movies` (`id`, `title`, `description_movie`, `price`, `category_id`
 (60, 'Zatoichi s Flashing Sword (Zatôichi abare tako) (Zatôichi 7)', 'maecenas leo', 4.35, 2),
 (61, 'C.R.A.Z.Y.', 'nisi nam ultrices', 2.32, 3),
 (62, 'Wrestler, The (Painija)', 'ultrices posuere', 3.26, 3),
-(63, 'Foodfight!', 'velit', 7.23, 19),
+(63, 'Foodfightt!', 'velit', 7.23, 19),
 (64, 'Unthinkable', 'sit', 9.54, 13),
 (65, 'I Love You Too (Ik ook Van Jou)', 'ligula suspendisse', 6.15, 2),
 (66, 'Village Barbershop, The', 'nascetur ridiculus', 1.49, 6),
@@ -343,13 +350,20 @@ INSERT INTO `users` (`username`, `password`, `first_name`, `last_name`, `date`, 
 --
 ALTER TABLE `category`
   ADD PRIMARY KEY (`id`);
+  
+ ALTER TABLE `category`
+MODIFY `id` INT NOT NULL AUTO_INCREMENT;
 
 --
 -- Indices de la tabla `movies`
 --
 ALTER TABLE `movies`
   ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `title` (`title`),
   ADD KEY `FK_movies` (`category_id`);
+  
+ALTER TABLE `movies`
+MODIFY `id` INT NOT NULL AUTO_INCREMENT;
 
 --
 -- Indices de la tabla `purchase`
@@ -358,6 +372,9 @@ ALTER TABLE `purchase`
   ADD PRIMARY KEY (`cod`,`user`,`id_movie`),
   ADD KEY `user` (`user`),
   ADD KEY `id_movie` (`id_movie`);
+  
+ALTER TABLE `purchase`
+MODIFY `cod` INT NOT NULL AUTO_INCREMENT;
 
 --
 -- Indices de la tabla `users`
@@ -383,10 +400,11 @@ ALTER TABLE `purchase`
   ADD CONSTRAINT `purchase_ibfk_2` FOREIGN KEY (`id_movie`) REFERENCES `movies` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
+
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 
---
---CREATE USER 'villarreal'@'%' IDENTIFIED BY 'vicen';
---GRANT ALL PRIVILEGES ON MoviesVillarreal.* to 'villarreal'@'%';
+
+

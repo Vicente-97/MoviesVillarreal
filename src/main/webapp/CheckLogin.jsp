@@ -1,4 +1,4 @@
-<%@page import="com.jacaranda.java.Md5encript"%>
+<%-- <%@page import="com.jacaranda.java.Md5encript"%>
 <%@page import="com.jacaranda.java.UtilsUsers"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -25,4 +25,4 @@
        		response.sendRedirect("error.jsp?msg_error=true");
   	 	}
 	 } 
-%>
+%> --%>

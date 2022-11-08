@@ -37,68 +37,92 @@ public class ListMovies extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		//declaro que el texto va a ser html/ codificacion UTF-8
-		response.setContentType("text/html;charset=UTF-8");
-		// decimos que en la salida de datos se va a escribir lo siguiente
-		PrintWriter out = response.getWriter();
 		
-		try {
-			out.println("<!DOCTYPE html>"
-					+ "<html>"
-					+ "<head>"
-					+ "<meta charset=\"UTF-8\">"
-					+ "<title>Peliculas</title>"
-					+ "<link rel=\"stylesheet\" type=\"text/css\" href=\"css/styleTablePage.css\">"
-					+ "</head>"
-					+ "<body background=\"images/fondo2.jpg\">");
-			
-			List<Movies> listMovie =null;
-			try {
-				listMovie=CRUDMovies.getMovies();
-			
-			} catch (Exception e) {
-				String message = e.getMessage();
-				response.sendRedirect("error.jsp?msg=" + message);
-			}
-			out.println("<div>"
-					+ "<table>"
-					+ "<tr>"
-					+ "<th>Id</th>"
-					+ "<th>title</th>"
-					+ "<th>Description</th>"
-					+ "<th>Price</th>"
-					+ "<th>Category_id</th>"
-					+ "</tr>");
-			
-			Iterator<Movies> iterator = listMovie.iterator();
-			while(iterator.hasNext()) { 
-				//Itera cada linea de nuestra base datos y nos la muestra en la tabla correspondiente.
-				
-					Movies movie = new Movies();
-					movie=iterator.next();
-					Integer id = movie.getId();
-					
-					out.println("<tr>"
-							+ "<td>"+movie.getId()+"</td>"
-							+ "<td>"+movie.getTitle()+"</td>"
-							+ "<td>"+movie.getDescription_movie()+"</td>"
-							+ "<td>"+movie.getPrice()+"</td>"
-							+ "<td>"+movie.getCategory().getGenres()+"</td>");
-							
-					
-			}
-			out.println("</table>"
-					+ "</div>"
-					+ "</body>"
-					+ "</html>");
-			
-			
-			
-			
-		} finally {
-			//cerramos la salida de datos
-			out.close();
-		}
+		/* Recogemos los parametros user y password del formulario de login.jsp */
+
+		String usuario = request.getParameter("username");
+	   	String password = request.getParameter("password");
+	            	
+	    /*Comprobamos que el login es correcto y lo redireccionamos a la lista de marcas "indexBrand.jsp"
+	    sino, volvemos a la pantalla de loggin pasandole un msg_error  */
+	    
+	    if(usuario !=null && password !=null){
+	    	if(UtilsUsers.userIsValid(usuario, password)){
+	            			
+	         	HttpSession userSession = request.getSession();
+	         	userSession.setAttribute("login", "True");
+	         	userSession.setAttribute("usuario", usuario);
+	         	
+
+	    		//declaro que el texto va a ser html/ codificacion UTF-8
+	    		response.setContentType("text/html;charset=UTF-8");
+	    		// decimos que en la salida de datos se va a escribir lo siguiente
+	    		PrintWriter out = response.getWriter();
+	    		
+	    		try {
+	    			out.println("<!DOCTYPE html>"
+	    					+ "<html>"
+	    					+ "<head>"
+	    					+ "<meta charset=\"UTF-8\">"
+	    					+ "<title>Peliculas</title>"
+	    					+ "<link rel=\"stylesheet\" type=\"text/css\" href=\"css/styleTablePage.css\">"
+	    					+ "</head>"
+	    					+ "<body background=\"images/fondo2.jpg\">");
+	    			
+	    			List<Movies> listMovie =null;
+	    			try {
+	    				listMovie=CRUDMovies.getMovies();
+	    			
+	    			} catch (Exception e) {
+	    				String message = e.getMessage();
+	    				response.sendRedirect("error.jsp?msg=" + message);
+	    			}
+	    			out.println("<div>"
+	    					+ "<table>"
+	    					+ "<tr>"
+	    					+ "<th>Id</th>"
+	    					+ "<th>title</th>"
+	    					+ "<th>Description</th>"
+	    					+ "<th>Price</th>"
+	    					+ "<th>Category_id</th>"
+	    					+ "</tr>");
+	    			
+	    			Iterator<Movies> iterator = listMovie.iterator();
+	    			while(iterator.hasNext()) { 
+	    				//Itera cada linea de nuestra base datos y nos la muestra en la tabla correspondiente.
+	    				
+	    					Movies movie = new Movies();
+	    					movie=iterator.next();
+	    					Integer id = movie.getId();
+	    					
+	    					out.println("<tr>"
+	    							+ "<td>"+movie.getId()+"</td>"
+	    							+ "<td>"+movie.getTitle()+"</td>"
+	    							+ "<td>"+movie.getDescription_movie()+"</td>"
+	    							+ "<td>"+movie.getPrice()+"</td>"
+	    							+ "<td>"+movie.getCategory().getGenres()+"</td>");
+	    							
+	    					
+	    			}
+	    			out.println("</table>"
+	    					+ "</div>"
+	    					+ "</body>"
+	    					+ "</html>");
+	    			
+	    			
+	    			
+	    			
+	    		} finally {
+	    			//cerramos la salida de datos
+	    			out.close();
+	    		}
+	            		
+	       	} else { 
+	       		response.sendRedirect("error.jsp?msg_error=true");
+	  	 	}
+		 }
+		
+		
 		
 	
 		response.getWriter().append("Served at: ").append(request.getContextPath());

@@ -13,7 +13,7 @@
                      
         <div id="centroLogin">
     
-        	<form action="CheckLogin.jsp"  method="post">
+        	<form action="ListMovies"  method="post">
             	<h1 id="titulo">MoviesVillarreal</h1>
 							
 			
