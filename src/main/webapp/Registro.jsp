@@ -9,7 +9,7 @@
 </head>
 <body>
 <div align="center">
-<form action="registro_user.jsp" method="GET" id="addUser">			
+<form action="RegistrerUser" method="GET" id="addUser">			
 		
 			<h3>Rellene los siguientes datos:</h3>
 			
