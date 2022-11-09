@@ -135,6 +135,10 @@ public class User {
 		this.purchases = purchases;
 	}
 
+	public Integer getAdmin() {
+		return admin;
+	}
+
 	
 
 }
