@@ -9,7 +9,7 @@
 </head>
 <body>
 <div align="center">
-<form action="RegistrerUser" method="GET" id="addUser">			
+<form action="RegistrerUser" method="post" id="addUser">			
 		
 			<h3>Rellene los siguientes datos:</h3>
 			

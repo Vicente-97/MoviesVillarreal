@@ -20,12 +20,12 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `MoviesVillarreal`
 
---EJECUTAR ESTE SCRIPT EN PHP.MYADMIN.NET , EN EL APARTADO "NUEVA". NO EJECUTAR EN UNA BASE DE DATOS YA EXISTENTE.
+-- EJECUTAR ESTE SCRIPT EN PHP.MYADMIN.NET , EN EL APARTADO "NUEVA". NO EJECUTAR EN UNA BASE DE DATOS YA EXISTENTE.
 CREATE DATABASE MoviesVillarreal;
 
 USE `MoviesVillarreal`;
 --
- CREATE USER 'villarreal'@'%' IDENTIFIED BY 'vicente';
+ CREATE USER 'villarreal'@'%' IDENTIFIED BY 'vicen';
  GRANT ALL PRIVILEGES ON MoviesVillarreal.* to 'villarreal'@'%';
 -- --------------------------------------------------------
 

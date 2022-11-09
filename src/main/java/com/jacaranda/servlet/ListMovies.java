@@ -38,6 +38,17 @@ public class ListMovies extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		
+	
+		response.getWriter().append("Served at: ").append(request.getContextPath());
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+
 		/* Recogemos los parametros user y password del formulario de login.jsp */
 
 		String usuario = request.getParameter("username");
@@ -118,27 +129,55 @@ public class ListMovies extends HttpServlet {
 	    		}
 	            		
 	       	} else { 
-	       		response.sendRedirect("error.jsp?msg_error=true");
+//	       	response.sendRedirect("error.jsp?msg_error=true");
+	       		response.setContentType("text/html;charset=UTF-8");
+	       		PrintWriter out = response.getWriter();
+	       		
+	       	try {
+	       		out.println("<!DOCTYPE html>"
+	       				+ "<html>"
+	       				+ "<head>"
+	       				+ "<meta charset=\"UTF-8\">"
+	       				+ "<title>Error 404</title>"
+	       				+ "		<link rel=\"stylesheet\" type=\"text/css\" href=\"css/styleError.css\">"
+	       				+ " "
+	       				+ "</head>"
+	       				+ "<body background=\"images/fondo_movie.jpg\">"
+	       				+ "      <a href=\"Index.jsp\"><img src=\"images/logo_movie-removebg.png\" width=\"110px\" height=\"100px\" id=\"logo\"></a>"
+	       				+ "            <hr>"
+	       				+ "            <div id=\"izq\">"
+	       				+ "                "
+	       				+ "                <img src=\"images/error_movie.jpg\" id=\"iconoError\">"
+	       				+ "            </div>"
+	       				+ "            <div id=\"der\">"
+	       				+ "                <h1 id=\"TextoGrande\"><FONT color=\"black\">¡Vaya!</FONT></h1>"
+	       				+ "                <h3 id=\"TextoChico\"><FONT color=\"black\">No hemos podido encontrar<br> la página que buscas.<br><br>Pulsa el icono arriba a la izquierda para volver.</FONT></h3>"
+	       				+ "                <h7 id=\"codError\">Codigo de error: 404</h7>"
+	       				+ "            </div>"
+	       				+ "</body>"
+	       				+ "</html>");
+	       		
+	       		
+	       	}finally {
+				out.close();
+			}
+	       		
 	  	 	}
+	       	
+	       	
 		 }
 		
 		
 		
 	
 		response.getWriter().append("Served at: ").append(request.getContextPath());
-	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-		doGet(request, response);
-	}
+	};
+	
 
 	protected void delete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		doGet(request, response);
 	}
+	
 
 }
