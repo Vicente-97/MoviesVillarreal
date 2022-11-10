@@ -25,8 +25,8 @@ CREATE DATABASE MoviesVillarreal;
 
 USE `MoviesVillarreal`;
 --
- CREATE USER 'villarreal'@'%' IDENTIFIED BY 'vicen';
- GRANT ALL PRIVILEGES ON MoviesVillarreal.* to 'villarreal'@'%';
+CREATE USER 'villarreal'@'%' IDENTIFIED BY 'vicen';
+GRANT ALL PRIVILEGES ON MoviesVillarreal.* to 'villarreal'@'%';
 -- --------------------------------------------------------
 
 --
@@ -44,27 +44,18 @@ CREATE TABLE `category` (
 -- Volcado de datos para la tabla `category`
 --
 
-INSERT INTO `category` (`id`, `genres`, `description_category`) VALUES
-(1, 'Adventure|Animation|Children|Comedy', 'nulla pede ullamcorper'),
-(2, 'Adventure|Thriller', 'at nibh in'),
-(3, 'Adventure', 'ornare imperdiet sapien'),
-(4, 'Crime|Thriller', 'viverra dapibus nulla'),
-(5, 'Drama|Romance', 'consequat in consequat'),
-(6, 'Drama', 'elementum pellentesque quisque'),
-(7, 'Crime|Drama', 'amet consectetuer adipiscing'),
-(8, 'Drama', 'mauris viverra diam'),
-(9, 'Drama', 'dapibus augue vel'),
-(10, 'Comedy|Fantasy', 'porta volutpat quam'),
-(11, 'Drama', 'nec molestie sed'),
-(12, 'Drama|Mystery|Thriller', 'quam sollicitudin vitae'),
-(13, 'Action|Adventure|Animation|Children', 'quis orci eget'),
-(14, 'Comedy', 'sem praesent id'),
-(15, 'Drama', 'nisi at nibh'),
-(16, 'Action|Adventure|Drama|Fantasy|IMAX', 'ultrices posuere cubilia'),
-(17, 'Comedy', 'vulputate luctus cum'),
-(18, 'Action|Comedy', 'eu massa donec'),
-(19, 'Action|Drama', 'elit proin interdum'),
-(20, 'Animation', 'sed interdum venenatis');
+
+INSERT INTO category (id,genres,description_category) VALUES (1,'Horror','fringilla rhoncus mauris');
+INSERT INTO category (id,genres,description_category) VALUES (2,'Drama','praesent blandit lacinia');
+INSERT INTO category (id,genres,description_category) VALUES (3,'Sci-Fi','arcu libero rutrum');
+INSERT INTO category (id,genres,description_category) VALUES (4,'Comedy','lectus pellentesque at');
+INSERT INTO category (id,genres,description_category) VALUES (5,'Romance','sit amet eleifend');
+INSERT INTO category (id,genres,description_category) VALUES (6,'Thriller','amet consectetuer adipiscing');
+INSERT INTO category (id,genres,description_category) VALUES (7,'Children','placerat ante nulla');
+INSERT INTO category (id,genres,description_category) VALUES (8,'Animation','mi nulla ac');
+INSERT INTO category (id,genres,description_category) VALUES (9,'Action','faucibus orci luctus');
+INSERT INTO category (id,genres,description_category) VALUES (10,'Documentary','ut ultrices vel');
+
 
 -- --------------------------------------------------------
 
@@ -84,107 +75,106 @@ CREATE TABLE `movies` (
 -- Volcado de datos para la tabla `movies`
 --
 
-INSERT INTO `movies` (`id`, `title`, `description_movie`, `price`, `category_id`) VALUES
-(1, 'Indian Summer (a.k.a. The Professor) (La prima notte di quiete)', 'duis', 2.39, 18),
-(2, 'Beyond the Poseidon Adventure', 'justo lacinia eget', 1.68, 13),
-(3, 'How to Eat Your Watermelon in White Company (and Enjoy It)', 'habitasse', 5.12, 19),
-(4, 'Knights of Badassdom', 'phasellus', 9.29, 16),
-(5, 'Dread', 'aenean sit', 3.02, 17),
-(6, 'Emperor s New Groove 2: Kronk s New Groove, The', 'sapien cursus vestibulum', 4.81, 4),
-(7, 'The Dancer', 'viverra eget congue', 1.04, 17),
-(8, 'Zebraman', 'ipsum ac tellus', 2.79, 14),
-(9, 'Night of the Living Dead 3D', 'dolor sit', 2.74, 11),
-(10, 'Star Wars: Episode I - The Phantom Menace', 'pede ullamcorper', 4.59, 17),
-(11, 'Bela Kiss: Prologue', 'erat nulla', 8.16, 13),
-(12, 'Seven Beauties (Pasqualino Settebellezze)', 'ac enim', 6.89, 5),
-(13, 'Night Walker, The', 'volutpat sapien', 3.3, 13),
-(14, 'Pekko ja unissakävelijä', 'id nulla ultrices', 4.31, 20),
-(15, 'Trick', 'integer', 3.94, 19),
-(16, 'Wise Guys', 'dolor sit amet', 8.13, 3),
-(17, 'Great Mouse Detective, The', 'at dolor', 3.45, 7),
-(18, 'Partners: The Movie II (Aibô: Gekijô-ban II)', 'at', 5.07, 8),
-(19, 'End of Suburbia: Oil Depletion and the Collapse of the American Dream', 'iaculis', 1.26, 1),
-(20, 'Serbian Film, A (Srpski film)', 'viverra pede ac', 1.7, 8),
-(21, 'The Face Behind the Mask', 'turpis enim blandit', 3.58, 10),
-(22, 'Five Easy Pieces', 'semper est', 6.65, 18),
-(23, 'The Diary of Preston Plummer', 'varius integer ac', 8.36, 4),
-(24, 'Detective Dee and the Mystery of the Phantom Flame (Di Renjie)', 'turpis', 2.14, 7),
-(25, 'Son of Monte Cristo, The', 'lorem', 6.05, 18),
-(26, 'Boy Eats Girl', 'faucibus orci', 2.04, 14),
-(27, 'Santa Claus', 'convallis duis', 7.61, 12),
-(28, 'We ll Never Have Paris', 'vestibulum', 5.01, 3),
-(29, 'Bon Voyage, Charlie Brown and Don t Come Back!', 'vestibulum', 3.94, 2),
-(30, 'Talent Given Us, The', 'dolor sit', 1.37, 19),
-(31, 'Changeling', 'ut', 1.73, 13),
-(32, 'Rock the Boat', 'consequat', 1.62, 14),
-(33, 'High Art', 'quam', 3.58, 10),
-(34, 'Koti-ikävä', 'volutpat eleifend donec', 5.26, 4),
-(35, 'Auschwitz: The Nazis and the Final Solution', 'velit nec nisi', 9.54, 3),
-(36, 'Foodfight!', 'orci', 8.64, 15),
-(37, 'Crips and Bloods: Made in America', 'justo', 4.68, 10),
-(38, 'Thursday', 'eget rutrum at', 6.58, 19),
-(39, 'Back to the Future Part III', 'diam nam', 7.21, 19),
-(40, 'Boys Next Door, The', 'etiam', 4.14, 20),
-(41, 'Cambridge Spies', 'donec', 6.81, 3),
-(42, 'Fjorton suger', 'vulputate vitae nisl', 9.95, 5),
-(43, 'Report, The (Gozaresh)', 'luctus et ultrices', 7.46, 18),
-(44, 'Yolki', 'lacus', 6.56, 6),
-(45, 'Twenty-Four Eyes (Nijûshi no hitomi)', 'vulputate', 8.19, 18),
-(46, 'Source Family, The', 'mauris non ligula', 5.39, 18),
-(47, 'Perfume', 'accumsan', 1.72, 10),
-(48, 'Long Voyage Home, The', 'in libero', 4.16, 15),
-(49, 'Arthur Christmas', 'est et tempus', 3.57, 16),
-(50, 'Kaboom', 'proin', 1.92, 14),
-(51, 'Dragonslayer', 'consequat lectus in', 8.84, 15),
-(52, 'Homesman, The', 'eget vulputate ut', 6.5, 4),
-(53, 'Mr. Wonderful', 'augue', 8.21, 6),
-(54, 'Arsène Lupin', 'nisl venenatis', 2.28, 14),
-(55, 'Chill Factor', 'ante ipsum', 7.64, 11),
-(56, 'Flodder', 'donec vitae', 2.43, 1),
-(57, 'Peter Ibbetson', 'mollis molestie', 6.04, 13),
-(58, 'Spy(ies) (Espion(s))', 'sapien cursus', 6.76, 1),
-(59, 'The Blue Room', 'dapibus', 5.65, 10),
-(60, 'Zatoichi s Flashing Sword (Zatôichi abare tako) (Zatôichi 7)', 'maecenas leo', 4.35, 2),
-(61, 'C.R.A.Z.Y.', 'nisi nam ultrices', 2.32, 3),
-(62, 'Wrestler, The (Painija)', 'ultrices posuere', 3.26, 3),
-(63, 'Foodfightt!', 'velit', 7.23, 19),
-(64, 'Unthinkable', 'sit', 9.54, 13),
-(65, 'I Love You Too (Ik ook Van Jou)', 'ligula suspendisse', 6.15, 2),
-(66, 'Village Barbershop, The', 'nascetur ridiculus', 1.49, 6),
-(67, 'How to Train Your Dragon', 'consequat dui', 9.01, 20),
-(68, 'Knockaround Guys', 'rutrum rutrum', 8.41, 7),
-(69, 'Pancho, the Millionaire Dog', 'suscipit a', 1.58, 16),
-(70, 'All This, and Heaven Too', 'velit id pretium', 4.05, 1),
-(71, 'Alien Space Avenger', 'amet sem', 2.64, 3),
-(72, 'Going Clear: Scientology and the Prison of Belief', 'vestibulum', 9.55, 13),
-(73, 'Planet B-Boy', 'metus', 8.24, 1),
-(74, 'House Is Black, The', 'nisl venenatis', 1.96, 18),
-(75, 'Laws of Gravity', 'lorem', 9.67, 13),
-(76, 'Clown, The', 'vulputate elementum', 8.12, 14),
-(77, 'Wanderlust', 'orci luctus et', 5.03, 7),
-(78, 'Runaway', 'magnis dis', 4.95, 6),
-(79, 'Cat People', 'donec', 5.71, 9),
-(80, 'Movie Movie', 'praesent lectus vestibulum', 8.42, 15),
-(81, 'Ju-on: The Curse 2', 'mauris vulputate elementum', 6.75, 17),
-(82, '101 Dalmatians II: Patch s London Adventure', 'ullamcorper', 9.63, 2),
-(83, 'Splendor', 'magna bibendum imperdiet', 5.1, 12),
-(84, 'Children s Hour, The', 'erat', 9.71, 1),
-(85, 'Above and Beyond', 'ligula vehicula consequat', 7.74, 16),
-(86, 'Big City Blues', 'maecenas', 3, 20),
-(87, 'Dom Hemingway', 'turpis', 9.37, 5),
-(88, 'Rewrite, The', 'dignissim vestibulum vestibulum', 5.8, 9),
-(89, 'Fame', 'mauris vulputate', 3.22, 15),
-(90, 'No Good Deed (a.k.a. The House on Turk Street)', 'sagittis dui', 4.42, 1),
-(91, 'Echoes of the Rainbow (Sui yuet san tau)', 'etiam pretium', 4.8, 16),
-(92, 'Samaritan Girl (Samaria)', 'nisi nam', 5.11, 16),
-(93, 'Post Grad', 'congue', 9.36, 19),
-(94, 'Hi, Mom!', 'amet consectetuer', 5.03, 13),
-(95, 'Gregory Go Boom', 'in quis', 5.66, 9),
-(96, 'Árido Movie', 'rutrum at', 8.38, 5),
-(97, 'Chiedimi se sono felice', 'vulputate ut ultrices', 2.64, 8),
-(98, 'Frankenhooker', 'elementum eu', 8.59, 13),
-(99, 'Sergeant Körmy and the Underwater Vehicles (Vääpeli Körmy ja vetenalaiset vehkeet)', 'ridiculus', 2.84, 5),
-(100, 'Trailer Park Jesus', 'ac lobortis vel', 9.36, 1);
+INSERT INTO movies (id,title,description_movie,price,category_id) VALUES (1,'L-Shaped Room, The','diam',3.72,6);
+INSERT INTO movies (id,title,description_movie,price,category_id) VALUES (2,'Sahara','odio',3.49,4);
+INSERT INTO movies (id,title,description_movie,price,category_id) VALUES (3,'Himizu','donec odio',3.87,4);
+INSERT INTO movies (id,title,description_movie,price,category_id) VALUES (4,'Solaris','odio',6.13,7);
+INSERT INTO movies (id,title,description_movie,price,category_id) VALUES (5,'Daydream Nation','orci',5.26,10);
+INSERT INTO movies (id,title,description_movie,price,category_id) VALUES (6,'Siegfried','at feugiat',9.05,7);
+INSERT INTO movies (id,title,description_movie,price,category_id) VALUES (7,'Beau Brummell: This Charming Man','eu massa donec',2.27,10);
+INSERT INTO movies (id,title,description_movie,price,category_id) VALUES (8,'Burn After Reading','tellus',6.63,8);
+INSERT INTO movies (id,title,description_movie,price,category_id) VALUES (9,'Nameless Gangster (Bumchoiwaui junjaeng)','curae mauris viverra',3.85,4);
+INSERT INTO movies (id,title,description_movie,price,category_id) VALUES (10,'Our Folks (Sami swoi)','ut',2.76,2);
+INSERT INTO movies (id,title,description_movie,price,category_id) VALUES (11,'Batman: Assault on Arkham','nibh',5.84,2);
+INSERT INTO movies (id,title,description_movie,price,category_id) VALUES (12,'Persuasion','quis turpis eget',9.62,8);
+INSERT INTO movies (id,title,description_movie,price,category_id) VALUES (13,'Zero 2','ut nulla sed',1.16,4);
+INSERT INTO movies (id,title,description_movie,price,category_id) VALUES (14,'Rum Diary, The','erat',8.74,9);
+INSERT INTO movies (id,title,description_movie,price,category_id) VALUES (15,'Black Bread (Pa Negre)','amet',7.74,5);
+INSERT INTO movies (id,title,description_movie,price,category_id) VALUES (16,'Berlin Express','est donec odio',8.69,5);
+INSERT INTO movies (id,title,description_movie,price,category_id) VALUES (17,'Anything Goes','turpis a pede',3.54,5);
+INSERT INTO movies (id,title,description_movie,price,category_id) VALUES (18,'Fairly Odd Movie: Grow Up, Timmy Turner!, A','nulla neque',2.97,1);
+INSERT INTO movies (id,title,description_movie,price,category_id) VALUES (19,'Zazie dans le métro','velit eu est',2.29,9);
+INSERT INTO movies (id,title,description_movie,price,category_id) VALUES (20,'Blackout, The','scelerisque',9,3);
+INSERT INTO movies (id,title,description_movie,price,category_id) VALUES (21,'Ararat','nisi',8.1,1);
+INSERT INTO movies (id,title,description_movie,price,category_id) VALUES (22,'Midnight Movie','massa volutpat convallis',5.41,8);
+INSERT INTO movies (id,title,description_movie,price,category_id) VALUES (23,'Ice Station Zebra','porta volutpat',8.93,4);
+INSERT INTO movies (id,title,description_movie,price,category_id) VALUES (24,'Dante s Inferno','eget vulputate ut',7.72,1);
+INSERT INTO movies (id,title,description_movie,price,category_id) VALUES (25,'We re No Angels', 'elit',1.08,9);
+INSERT INTO movies (id,title,description_movie,price,category_id) VALUES (26,'Harry and the Hendersons','lectus aliquam',5.66,8);
+INSERT INTO movies (id,title,description_movie,price,category_id) VALUES (27,'King Solomon s Mines','suspendisse',3.87,1);
+INSERT INTO movies (id,title,description_movie,price,category_id) VALUES (28,'Puddle Cruiser','dolor quis odio',5.04,4);
+INSERT INTO movies (id,title,description_movie,price,category_id) VALUES (29,'Beetlejuice','ut',7.16,8);
+INSERT INTO movies (id,title,description_movie,price,category_id) VALUES (30,'Massacre Canyon','in faucibus orci',5.29,4);
+INSERT INTO movies (id,title,description_movie,price,category_id) VALUES (31,'Blue Crush','primis in',7.53,7);
+INSERT INTO movies (id,title,description_movie,price,category_id) VALUES (32,'Beautiful Life, A','nisl duis',8.29,4);
+INSERT INTO movies (id,title,description_movie,price,category_id) VALUES (33,'Storage','in lacus',2.46,8);
+INSERT INTO movies (id,title,description_movie,price,category_id) VALUES (34,'Oculus','morbi vel lectus',5.83,3);
+INSERT INTO movies (id,title,description_movie,price,category_id) VALUES (35,'Eddie Izzard: Glorious','in blandit',3.6,7);
+INSERT INTO movies (id,title,description_movie,price,category_id) VALUES (36,'Innocent Sleep, The','montes nascetur ridiculus',8.55,10);
+INSERT INTO movies (id,title,description_movie,price,category_id) VALUES (37,'Evelyn Prentice','in blandit ultrices',8.25,4);
+INSERT INTO movies (id,title,description_movie,price,category_id) VALUES (38,'Heartbeats (Les amours imaginaires)','ultrices',7.98,9);
+INSERT INTO movies (id,title,description_movie,price,category_id) VALUES (39,'42nd Street','faucibus orci',8.96,3);
+INSERT INTO movies (id,title,description_movie,price,category_id) VALUES (40,'Bigga Than Ben','convallis',1.8,7);
+INSERT INTO movies (id,title,description_movie,price,category_id) VALUES (41,'Pursuit of Happiness, The','ipsum primis',7.44,8);
+INSERT INTO movies (id,title,description_movie,price,category_id) VALUES (42,'Endurance: Shackleton s Legendary Antarctic Expedition, The','in sapien',9.05,5);
+INSERT INTO movies (id,title,description_movie,price,category_id) VALUES (43,'Great White Hype, The','pede malesuada in',4.8,7);
+INSERT INTO movies (id,title,description_movie,price,category_id) VALUES (44,'Perils of the Sentimental Swordsman','sapien ut nunc',8.87,9);
+INSERT INTO movies (id,title,description_movie,price,category_id) VALUES (45,'Day of the Crows, The (Le jour des corneilles)','eleifend donec ut',8.9,5);
+INSERT INTO movies (id,title,description_movie,price,category_id) VALUES (46,'Tigger Movie, The','aliquam lacus',3.5,1);
+INSERT INTO movies (id,title,description_movie,price,category_id) VALUES (47,'His Private Secretary','quisque',2.04,10);
+INSERT INTO movies (id,title,description_movie,price,category_id) VALUES (48,'Pulse','dui proin',7.36,4);
+INSERT INTO movies (id,title,description_movie,price,category_id) VALUES (49,'Chef','cum',2.18,9);
+INSERT INTO movies (id,title,description_movie,price,category_id) VALUES (50,'Monsieur Batignole','turpis donec posuere',6.43,10);
+INSERT INTO movies (id,title,description_movie,price,category_id) VALUES (51,'Beware of Mr. Baker','tortor',7.91,4);
+INSERT INTO movies (id,title,description_movie,price,category_id) VALUES (52,'Stella','sed nisl nunc',7.49,8);
+INSERT INTO movies (id,title,description_movie,price,category_id) VALUES (53,'Pitfall (Otoshiana)','quis turpis',3.14,1);
+INSERT INTO movies (id,title,description_movie,price,category_id) VALUES (54,'Revolt in the Fifth Dimension','fusce',9.91,2);
+INSERT INTO movies (id,title,description_movie,price,category_id) VALUES (55,'Branded to Kill (Koroshi no rakuin)','magna',8.1,6);
+INSERT INTO movies (id,title,description_movie,price,category_id) VALUES (56,'H-Man, The (Bijo to Ekitainingen)','mi in porttitor',8.98,9);
+INSERT INTO movies (id,title,description_movie,price,category_id) VALUES (57,'First Comes Love','feugiat non',8.89,2);
+INSERT INTO movies (id,title,description_movie,price,category_id) VALUES (58,'Horse Whisperer, The','hendrerit at',2.07,4);
+INSERT INTO movies (id,title,description_movie,price,category_id) VALUES (59,'Forger, The','lectus suspendisse',8.81,7);
+INSERT INTO movies (id,title,description_movie,price,category_id) VALUES (60,'Faust','purus eu magna',6.98,8);
+INSERT INTO movies (id,title,description_movie,price,category_id) VALUES (61,'Guns of Fort Petticoat, The','tincidunt ante vel',5.96,5);
+INSERT INTO movies (id,title,description_movie,price,category_id) VALUES (62,'Tarzan, the Ape Man','aliquam non',2.85,2);
+INSERT INTO movies (id,title,description_movie,price,category_id) VALUES (63,'Double Trouble','praesent',5.76,7);
+INSERT INTO movies (id,title,description_movie,price,category_id) VALUES (64,'Hearts of the West','amet diam',8.41,2);
+INSERT INTO movies (id,title,description_movie,price,category_id) VALUES (65,'Alpha and Omega 2: A Howl-iday Adventure (Alpha &amp; Omega 2)','suspendisse ornare',4.68,6);
+INSERT INTO movies (id,title,description_movie,price,category_id) VALUES (66,'Midnight Clear, A','libero nullam',9.49,8);
+INSERT INTO movies (id,title,description_movie,price,category_id) VALUES (67,'Rape of Europa, The','at turpis',4.24,5);
+INSERT INTO movies (id,title,description_movie,price,category_id) VALUES (68,'Double Wedding','dui vel nisl',6.51,1);
+INSERT INTO movies (id,title,description_movie,price,category_id) VALUES (69,'Shakthi: The Power','in hac',8.79,4);
+INSERT INTO movies (id,title,description_movie,price,category_id) VALUES (70,'Carman: The Champion','sodales',1.56,1);
+INSERT INTO movies (id,title,description_movie,price,category_id) VALUES (71,'Genocide (Konchû daisensô)','morbi',7.13,1);
+INSERT INTO movies (id,title,description_movie,price,category_id) VALUES (72,'Salaam Cinema','vel lectus',8.91,9);
+INSERT INTO movies (id,title,description_movie,price,category_id) VALUES (73,'100 Girls','magnis dis',8.33,10);
+INSERT INTO movies (id,title,description_movie,price,category_id) VALUES (74,'Shiver of the Vampires, The (Frisson des vampires, Le)','mauris',6.04,3);
+INSERT INTO movies (id,title,description_movie,price,category_id) VALUES (75,'In Between Days','sed',3.67,8);
+INSERT INTO movies (id,title,description_movie,price,category_id) VALUES (76,'Executive Action','purus',9.11,4);
+INSERT INTO movies (id,title,description_movie,price,category_id) VALUES (77,'Colt Comrades','aliquam',6.16,2);
+INSERT INTO movies (id,title,description_movie,price,category_id) VALUES (78,'Tokyo Olympiad','vestibulum aliquet',1.83,6);
+INSERT INTO movies (id,title,description_movie,price,category_id) VALUES (79,'Unreal Dream: The Michael Morton Story, An','sollicitudin',3.01,3);
+INSERT INTO movies (id,title,description_movie,price,category_id) VALUES (80,'Once Upon a Time in the Midlands','ipsum dolor',1.31,9);
+INSERT INTO movies (id,title,description_movie,price,category_id) VALUES (81,'Meet Me at the Fair','nisi vulputate nonummy',1.71,10);
+INSERT INTO movies (id,title,description_movie,price,category_id) VALUES (82,'Virgin Queen, The','eget eleifend luctus',8.46,8);
+INSERT INTO movies (id,title,description_movie,price,category_id) VALUES (83,'Something the Lord Made','ultricies eu',7.49,7);
+INSERT INTO movies (id,title,description_movie,price,category_id) VALUES (84,'Ballad of the Little Soldier (Ballade vom kleinen Soldaten)','amet',5.4,7);
+INSERT INTO movies (id,title,description_movie,price,category_id) VALUES (85,'Final Destination 5','posuere cubilia',9.9,6);
+INSERT INTO movies (id,title,description_movie,price,category_id) VALUES (86,'Kelly s Heroes','purus eu magna',8.39,7);
+INSERT INTO movies (id,title,description_movie,price,category_id) VALUES (87,'Hard Rain','mauris laoreet ut',7.7,2);
+INSERT INTO movies (id,title,description_movie,price,category_id) VALUES (88,'Law Abiding Citizen','ante vel',6.52,2);
+INSERT INTO movies (id,title,description_movie,price,category_id) VALUES (89,'Love Is Colder Than Death (Liebe ist kälter als der Tod)','massa quis augue',8.19,6);
+INSERT INTO movies (id,title,description_movie,price,category_id) VALUES (90,'Painted Veil, The','est phasellus sit',2.08,8);
+INSERT INTO movies (id,title,description_movie,price,category_id) VALUES (91,'One Life','libero',4.68,2);
+INSERT INTO movies (id,title,description_movie,price,category_id) VALUES (92,'Larry the Cable Guy: Health Inspector','ac lobortis',6.16,5);
+INSERT INTO movies (id,title,description_movie,price,category_id) VALUES (93,'Léon Morin, Priest (Léon Morin, prêtre)','sem',1.06,5);
+INSERT INTO movies (id,title,description_movie,price,category_id) VALUES (94,'Wheels on Meals (Kuai can che)','in porttitor',4.04,4);
+INSERT INTO movies (id,title,description_movie,price,category_id) VALUES (95,'Dom Hemingway','dis parturient montes',8.96,10);
+INSERT INTO movies (id,title,description_movie,price,category_id) VALUES (96,'Shed No Tears (Känn ingen sorg)','tellus in',8.06,8);
+INSERT INTO movies (id,title,description_movie,price,category_id) VALUES (97,'New Country, The (Det nya landet)','habitasse platea dictumst',7.14,1);
+INSERT INTO movies (id,title,description_movie,price,category_id) VALUES (98,'Who ll Stop the Rain','sollicitudin vitae',8.22,10);
+INSERT INTO movies (id,title,description_movie,price,category_id) VALUES (99,'Mezzo Forte','lectus',1.41,8);
+INSERT INTO movies (id,title,description_movie,price,category_id) VALUES (100,'Snakehead Terror','faucibus',2.56,4);
 
 -- --------------------------------------------------------
 
@@ -205,107 +195,108 @@ CREATE TABLE `purchase` (
 -- Volcado de datos para la tabla `purchase`
 --
 
-INSERT INTO `purchase` (`cod`, `price`, `user`, `date`, `quantity`, `id_movie`) VALUES
-(1, 1.15, 'lcosgry1', '1989-06-26', 97, 42),
-(2, 4.37, 'vligertwood0', '2016-07-19', 43, 40),
-(3, 1.14, 'wburroughes7', '1989-08-07', 58, 29),
-(4, 5.83, 'kwright3', '1983-01-18', 89, 71),
-(5, 1.95, 'rmacellar6', '2015-11-07', 94, 69),
-(6, 7.17, 'wburroughes7', '1999-08-28', 83, 84),
-(7, 3.89, 'ghebbes8', '1983-07-14', 71, 72),
-(8, 9.38, 'vligertwood0', '1985-08-15', 1, 26),
-(9, 9.99, 'wburroughes7', '1994-11-08', 28, 3),
-(10, 8.38, 'lcosgry1', '1991-06-09', 35, 5),
-(11, 4.06, 'kwright3', '1992-06-25', 68, 31),
-(12, 7.48, 'wburroughes7', '2006-05-19', 32, 36),
-(13, 7.36, 'vligertwood0', '2022-11-04', 46, 4),
-(14, 3.34, 'dcorse4', '1987-02-07', 77, 89),
-(15, 4.28, 'ghebbes8', '2001-12-17', 14, 30),
-(16, 7.77, 'wburroughes7', '2022-05-13', 34, 28),
-(17, 3.91, 'kwright3', '1994-05-17', 34, 44),
-(18, 6.33, 'vligertwood0', '2003-08-11', 21, 8),
-(19, 2.14, 'lanniwell9', '1989-03-10', 95, 31),
-(20, 2.86, 'dcorse4', '2007-09-13', 47, 90),
-(21, 1.97, 'dcorse4', '2022-02-04', 62, 59),
-(22, 7.4, 'rmacellar6', '1994-11-11', 20, 76),
-(23, 2.11, 'kwright3', '2000-03-10', 46, 32),
-(24, 7.89, 'dcorse4', '2007-12-15', 30, 69),
-(25, 7.19, 'rmacellar6', '1984-04-04', 67, 95),
-(26, 4.32, 'dcorse4', '1998-12-06', 42, 97),
-(27, 1.74, 'lcosgry1', '2013-11-25', 28, 35),
-(28, 3.53, 'lcosgry1', '1995-01-28', 28, 46),
-(29, 9.8, 'wburroughes7', '1984-08-15', 100, 87),
-(30, 9.37, 'lanniwell9', '2018-06-18', 61, 93),
-(31, 8.44, 'vligertwood0', '1981-12-31', 26, 89),
-(32, 1.28, 'scarine5', '2006-12-30', 99, 72),
-(33, 7.27, 'lcosgry1', '1999-03-20', 62, 75),
-(34, 7.61, 'ghebbes8', '2014-12-15', 63, 40),
-(35, 6.61, 'ghebbes8', '1997-05-16', 49, 39),
-(36, 1.01, 'dcorse4', '2022-05-21', 25, 33),
-(37, 8.92, 'wburroughes7', '2007-06-11', 99, 51),
-(38, 5.42, 'ilosbie2', '2011-09-14', 93, 36),
-(39, 9.24, 'rmacellar6', '1986-01-29', 24, 81),
-(40, 1.44, 'ghebbes8', '2010-12-02', 39, 20),
-(41, 8.21, 'dcorse4', '2021-05-06', 34, 94),
-(42, 2.13, 'ghebbes8', '1983-09-08', 26, 87),
-(43, 9.88, 'vligertwood0', '1989-11-24', 40, 7),
-(44, 1.96, 'rmacellar6', '2021-04-01', 66, 17),
-(45, 2.86, 'rmacellar6', '2005-10-12', 62, 71),
-(46, 9.66, 'dcorse4', '2015-06-24', 90, 72),
-(47, 6.33, 'vligertwood0', '1997-04-27', 55, 10),
-(48, 2.85, 'vligertwood0', '2004-02-18', 48, 56),
-(49, 8.62, 'wburroughes7', '2020-07-20', 19, 13),
-(50, 2.07, 'rmacellar6', '1995-09-16', 3, 82),
-(51, 5.1, 'vligertwood0', '2005-10-23', 67, 83),
-(52, 6.26, 'wburroughes7', '1983-07-18', 33, 23),
-(53, 4.16, 'dcorse4', '1988-06-23', 44, 89),
-(54, 8.79, 'scarine5', '1985-07-18', 69, 2),
-(55, 3.05, 'lcosgry1', '2020-04-09', 65, 90),
-(56, 9.94, 'lcosgry1', '2019-10-29', 85, 59),
-(57, 1.12, 'wburroughes7', '1988-06-09', 2, 94),
-(58, 4.48, 'vligertwood0', '2014-12-21', 82, 13),
-(59, 8.26, 'ghebbes8', '2011-11-10', 14, 17),
-(60, 7.48, 'wburroughes7', '2017-02-11', 35, 91),
-(61, 4.8, 'rmacellar6', '1991-12-28', 27, 71),
-(62, 1.63, 'rmacellar6', '1992-12-13', 1, 88),
-(63, 4.12, 'kwright3', '1992-10-11', 74, 89),
-(64, 1.23, 'lanniwell9', '1987-04-10', 12, 26),
-(65, 2.9, 'lanniwell9', '1999-08-30', 1, 20),
-(66, 8.95, 'ghebbes8', '1999-02-28', 31, 5),
-(67, 8.93, 'rmacellar6', '2005-02-25', 3, 89),
-(68, 5.39, 'ilosbie2', '2002-07-02', 96, 9),
-(69, 8.38, 'dcorse4', '1981-11-18', 79, 70),
-(70, 5.41, 'vligertwood0', '2016-06-29', 100, 60),
-(71, 1.91, 'lcosgry1', '2013-03-12', 83, 13),
-(72, 9.05, 'kwright3', '1990-10-29', 24, 58),
-(73, 1.87, 'vligertwood0', '2002-11-21', 1, 40),
-(74, 8.16, 'kwright3', '1981-06-21', 43, 47),
-(75, 2.47, 'ilosbie2', '1988-02-22', 83, 61),
-(76, 8.35, 'lanniwell9', '1982-04-06', 20, 21),
-(77, 1.5, 'rmacellar6', '1988-09-14', 70, 76),
-(78, 4.02, 'vligertwood0', '1992-04-09', 85, 78),
-(79, 9.36, 'wburroughes7', '2001-09-22', 2, 52),
-(80, 2.12, 'rmacellar6', '2015-06-25', 11, 33),
-(81, 2.88, 'ilosbie2', '1987-12-06', 7, 41),
-(82, 2.74, 'scarine5', '2008-01-28', 47, 39),
-(83, 3.26, 'wburroughes7', '2013-06-27', 40, 13),
-(84, 6.71, 'ghebbes8', '2021-02-08', 23, 48),
-(85, 8.71, 'ghebbes8', '1998-09-02', 59, 24),
-(86, 6, 'wburroughes7', '2002-08-02', 68, 91),
-(87, 9.43, 'vligertwood0', '2019-09-19', 12, 14),
-(88, 6.74, 'scarine5', '1989-03-13', 75, 10),
-(89, 2.45, 'rmacellar6', '1988-10-20', 86, 30),
-(90, 8.48, 'vligertwood0', '2015-10-24', 74, 100),
-(91, 7.84, 'ilosbie2', '1985-11-21', 61, 97),
-(92, 7.84, 'scarine5', '2012-02-15', 5, 66),
-(93, 9.43, 'rmacellar6', '2013-01-22', 20, 42),
-(94, 8.62, 'dcorse4', '2005-11-15', 63, 30),
-(95, 6.72, 'ilosbie2', '2003-11-09', 95, 9),
-(96, 9.45, 'dcorse4', '1991-11-07', 74, 62),
-(97, 7.99, 'ilosbie2', '1988-01-17', 53, 18),
-(98, 7.8, 'lanniwell9', '2000-12-31', 22, 51),
-(99, 1.44, 'scarine5', '2010-08-30', 82, 8),
-(100, 1.31, 'lcosgry1', '2020-05-25', 46, 52);
+
+INSERT INTO purchase (cod,price,user,date,quantity,id_movie) VALUES (1,9,'vligertwood0','1989-05-07',69,89);
+INSERT INTO purchase (cod,price,user,date,quantity,id_movie) VALUES (2,5,'scarine5','1993-05-27',95,17);
+INSERT INTO purchase (cod,price,user,date,quantity,id_movie) VALUES (3,3,'lcosgry1','1989-10-10',64,67);
+INSERT INTO purchase (cod,price,user,date,quantity,id_movie) VALUES (4,10,'ghebbes8','1996-06-07',54,2);
+INSERT INTO purchase (cod,price,user,date,quantity,id_movie) VALUES (5,10,'lanniwell9','1992-02-22',49,96);
+INSERT INTO purchase (cod,price,user,date,quantity,id_movie) VALUES (6,8,'scarine5','1993-02-08',40,70);
+INSERT INTO purchase (cod,price,user,date,quantity,id_movie) VALUES (7,3,'kwright3','1993-10-25',15,75);
+INSERT INTO purchase (cod,price,user,date,quantity,id_movie) VALUES (8,3,'lanniwell9','2020-04-27',89,19);
+INSERT INTO purchase (cod,price,user,date,quantity,id_movie) VALUES (9,1,'kwright3','1977-10-29',92,82);
+INSERT INTO purchase (cod,price,user,date,quantity,id_movie) VALUES (10,10,'scarine5','1997-10-06',47,43);
+INSERT INTO purchase (cod,price,user,date,quantity,id_movie) VALUES (11,5,'lanniwell9','1978-03-15',92,20);
+INSERT INTO purchase (cod,price,user,date,quantity,id_movie) VALUES (12,4,'rmacellar6','1977-01-10',83,8);
+INSERT INTO purchase (cod,price,user,date,quantity,id_movie) VALUES (13,3,'ilosbie2','1988-05-29',97,84);
+INSERT INTO purchase (cod,price,user,date,quantity,id_movie) VALUES (14,4,'rmacellar6','2022-03-01',47,20);
+INSERT INTO purchase (cod,price,user,date,quantity,id_movie) VALUES (15,6,'dcorse4','2016-01-14',42,64);
+INSERT INTO purchase (cod,price,user,date,quantity,id_movie) VALUES (16,10,'lanniwell9','2020-09-28',97,85);
+INSERT INTO purchase (cod,price,user,date,quantity,id_movie) VALUES (17,1,'ghebbes8','1997-08-02',11,71);
+INSERT INTO purchase (cod,price,user,date,quantity,id_movie) VALUES (18,8,'lcosgry1','1997-02-17',13,72);
+INSERT INTO purchase (cod,price,user,date,quantity,id_movie) VALUES (19,6,'vligertwood0','2003-05-27',22,66);
+INSERT INTO purchase (cod,price,user,date,quantity,id_movie) VALUES (20,4,'ilosbie2','1999-03-05',21,98);
+INSERT INTO purchase (cod,price,user,date,quantity,id_movie) VALUES (21,8,'kwright3','1981-06-09',56,69);
+INSERT INTO purchase (cod,price,user,date,quantity,id_movie) VALUES (22,1,'vligertwood0','2019-05-29',93,61);
+INSERT INTO purchase (cod,price,user,date,quantity,id_movie) VALUES (23,8,'wburroughes7','1979-05-09',2,77);
+INSERT INTO purchase (cod,price,user,date,quantity,id_movie) VALUES (24,5,'kwright3','2010-01-16',67,66);
+INSERT INTO purchase (cod,price,user,date,quantity,id_movie) VALUES (25,2,'wburroughes7','1977-08-04',90,36);
+INSERT INTO purchase (cod,price,user,date,quantity,id_movie) VALUES (26,5,'ilosbie2','2014-07-09',84,100);
+INSERT INTO purchase (cod,price,user,date,quantity,id_movie) VALUES (27,6,'rmacellar6','2003-11-12',90,100);
+INSERT INTO purchase (cod,price,user,date,quantity,id_movie) VALUES (28,5,'lcosgry1','2007-05-29',66,46);
+INSERT INTO purchase (cod,price,user,date,quantity,id_movie) VALUES (29,5,'scarine5','2012-01-16',90,12);
+INSERT INTO purchase (cod,price,user,date,quantity,id_movie) VALUES (30,8,'wburroughes7','1995-10-09',24,56);
+INSERT INTO purchase (cod,price,user,date,quantity,id_movie) VALUES (31,4,'wburroughes7','2021-03-08',44,52);
+INSERT INTO purchase (cod,price,user,date,quantity,id_movie) VALUES (32,9,'lanniwell9','1989-10-10',58,95);
+INSERT INTO purchase (cod,price,user,date,quantity,id_movie) VALUES (33,6,'rmacellar6','2014-03-26',57,57);
+INSERT INTO purchase (cod,price,user,date,quantity,id_movie) VALUES (34,3,'ghebbes8','1988-11-30',22,27);
+INSERT INTO purchase (cod,price,user,date,quantity,id_movie) VALUES (35,7,'ghebbes8','2002-07-05',41,46);
+INSERT INTO purchase (cod,price,user,date,quantity,id_movie) VALUES (36,6,'wburroughes7','1993-07-08',57,63);
+INSERT INTO purchase (cod,price,user,date,quantity,id_movie) VALUES (37,7,'ghebbes8','1987-03-24',37,61);
+INSERT INTO purchase (cod,price,user,date,quantity,id_movie) VALUES (38,10,'kwright3','1991-12-14',39,92);
+INSERT INTO purchase (cod,price,user,date,quantity,id_movie) VALUES (39,1,'dcorse4','1991-11-28',94,81);
+INSERT INTO purchase (cod,price,user,date,quantity,id_movie) VALUES (40,7,'lanniwell9','1988-01-07',92,83);
+INSERT INTO purchase (cod,price,user,date,quantity,id_movie) VALUES (41,7,'scarine5','1995-09-30',82,49);
+INSERT INTO purchase (cod,price,user,date,quantity,id_movie) VALUES (42,9,'kwright3','2001-10-30',11,48);
+INSERT INTO purchase (cod,price,user,date,quantity,id_movie) VALUES (43,10,'dcorse4','1980-08-25',92,40);
+INSERT INTO purchase (cod,price,user,date,quantity,id_movie) VALUES (44,9,'lcosgry1','1996-05-20',80,71);
+INSERT INTO purchase (cod,price,user,date,quantity,id_movie) VALUES (45,1,'ghebbes8','2010-07-30',56,2);
+INSERT INTO purchase (cod,price,user,date,quantity,id_movie) VALUES (46,6,'ghebbes8','1984-08-22',60,4);
+INSERT INTO purchase (cod,price,user,date,quantity,id_movie) VALUES (47,6,'vligertwood0','1981-09-03',37,30);
+INSERT INTO purchase (cod,price,user,date,quantity,id_movie) VALUES (48,9,'lcosgry1','1975-11-30',58,65);
+INSERT INTO purchase (cod,price,user,date,quantity,id_movie) VALUES (49,8,'lanniwell9','2010-10-19',70,4);
+INSERT INTO purchase (cod,price,user,date,quantity,id_movie) VALUES (50,5,'lcosgry1','1997-03-23',87,46);
+INSERT INTO purchase (cod,price,user,date,quantity,id_movie) VALUES (51,7,'vligertwood0','1977-02-24',65,46);
+INSERT INTO purchase (cod,price,user,date,quantity,id_movie) VALUES (52,5,'ilosbie2','1991-10-20',7,89);
+INSERT INTO purchase (cod,price,user,date,quantity,id_movie) VALUES (53,10,'dcorse4','1982-11-12',27,85);
+INSERT INTO purchase (cod,price,user,date,quantity,id_movie) VALUES (54,4,'wburroughes7','1981-02-03',47,69);
+INSERT INTO purchase (cod,price,user,date,quantity,id_movie) VALUES (55,7,'kwright3','1978-10-24',60,2);
+INSERT INTO purchase (cod,price,user,date,quantity,id_movie) VALUES (56,7,'rmacellar6','2012-03-24',78,98);
+INSERT INTO purchase (cod,price,user,date,quantity,id_movie) VALUES (57,1,'wburroughes7','1983-01-07',63,76);
+INSERT INTO purchase (cod,price,user,date,quantity,id_movie) VALUES (58,2,'dcorse4','2012-01-02',20,13);
+INSERT INTO purchase (cod,price,user,date,quantity,id_movie) VALUES (59,7,'scarine5','1976-04-09',43,7);
+INSERT INTO purchase (cod,price,user,date,quantity,id_movie) VALUES (60,3,'lanniwell9','2018-12-10',18,57);
+INSERT INTO purchase (cod,price,user,date,quantity,id_movie) VALUES (61,5,'ghebbes8','2008-10-14',79,32);
+INSERT INTO purchase (cod,price,user,date,quantity,id_movie) VALUES (62,2,'wburroughes7','2022-04-23',4,60);
+INSERT INTO purchase (cod,price,user,date,quantity,id_movie) VALUES (63,10,'lcosgry1','1999-04-01',97,81);
+INSERT INTO purchase (cod,price,user,date,quantity,id_movie) VALUES (64,6,'vligertwood0','2015-05-04',48,47);
+INSERT INTO purchase (cod,price,user,date,quantity,id_movie) VALUES (65,7,'vligertwood0','2007-01-20',41,40);
+INSERT INTO purchase (cod,price,user,date,quantity,id_movie) VALUES (66,10,'dcorse4','1989-08-11',76,42);
+INSERT INTO purchase (cod,price,user,date,quantity,id_movie) VALUES (67,3,'lanniwell9','1984-04-13',27,35);
+INSERT INTO purchase (cod,price,user,date,quantity,id_movie) VALUES (68,10,'rmacellar6','1983-04-06',64,37);
+INSERT INTO purchase (cod,price,user,date,quantity,id_movie) VALUES (69,3,'kwright3','1987-08-03',20,55);
+INSERT INTO purchase (cod,price,user,date,quantity,id_movie) VALUES (70,10,'vligertwood0','1991-03-19',13,93);
+INSERT INTO purchase (cod,price,user,date,quantity,id_movie) VALUES (71,9,'vligertwood0','2017-03-14',22,90);
+INSERT INTO purchase (cod,price,user,date,quantity,id_movie) VALUES (72,3,'wburroughes7','2004-09-03',100,36);
+INSERT INTO purchase (cod,price,user,date,quantity,id_movie) VALUES (73,4,'kwright3','1997-02-26',34,38);
+INSERT INTO purchase (cod,price,user,date,quantity,id_movie) VALUES (74,10,'rmacellar6','2001-01-22',9,12);
+INSERT INTO purchase (cod,price,user,date,quantity,id_movie) VALUES (75,6,'ilosbie2','2017-07-11',77,8);
+INSERT INTO purchase (cod,price,user,date,quantity,id_movie) VALUES (76,8,'vligertwood0','2006-09-06',75,34);
+INSERT INTO purchase (cod,price,user,date,quantity,id_movie) VALUES (77,2,'rmacellar6','2006-09-10',33,30);
+INSERT INTO purchase (cod,price,user,date,quantity,id_movie) VALUES (78,9,'ilosbie2','1975-12-15',69,93);
+INSERT INTO purchase (cod,price,user,date,quantity,id_movie) VALUES (79,1,'rmacellar6','1986-11-12',25,14);
+INSERT INTO purchase (cod,price,user,date,quantity,id_movie) VALUES (80,4,'lcosgry1','2016-10-27',100,35);
+INSERT INTO purchase (cod,price,user,date,quantity,id_movie) VALUES (81,5,'dcorse4','1983-04-25',50,6);
+INSERT INTO purchase (cod,price,user,date,quantity,id_movie) VALUES (82,5,'lcosgry1','2016-10-07',52,98);
+INSERT INTO purchase (cod,price,user,date,quantity,id_movie) VALUES (83,7,'dcorse4','1991-05-09',85,47);
+INSERT INTO purchase (cod,price,user,date,quantity,id_movie) VALUES (84,5,'lcosgry1','2010-08-29',84,77);
+INSERT INTO purchase (cod,price,user,date,quantity,id_movie) VALUES (85,2,'ghebbes8','1994-08-02',18,81);
+INSERT INTO purchase (cod,price,user,date,quantity,id_movie) VALUES (86,4,'ghebbes8','1987-11-18',26,19);
+INSERT INTO purchase (cod,price,user,date,quantity,id_movie) VALUES (87,2,'vligertwood0','1989-03-10',88,94);
+INSERT INTO purchase (cod,price,user,date,quantity,id_movie) VALUES (88,7,'rmacellar6','1999-06-13',82,83);
+INSERT INTO purchase (cod,price,user,date,quantity,id_movie) VALUES (89,7,'scarine5','1999-04-27',64,72);
+INSERT INTO purchase (cod,price,user,date,quantity,id_movie) VALUES (90,7,'scarine5','2018-12-05',92,10);
+INSERT INTO purchase (cod,price,user,date,quantity,id_movie) VALUES (91,6,'dcorse4','1986-08-21',35,28);
+INSERT INTO purchase (cod,price,user,date,quantity,id_movie) VALUES (92,3,'scarine5','1991-10-30',56,42);
+INSERT INTO purchase (cod,price,user,date,quantity,id_movie) VALUES (93,10,'kwright3','2013-10-23',63,43);
+INSERT INTO purchase (cod,price,user,date,quantity,id_movie) VALUES (94,9,'ghebbes8','1986-03-13',10,94);
+INSERT INTO purchase (cod,price,user,date,quantity,id_movie) VALUES (95,3,'rmacellar6','1989-08-14',50,57);
+INSERT INTO purchase (cod,price,user,date,quantity,id_movie) VALUES (96,9,'ilosbie2','2012-04-09',10,12);
+INSERT INTO purchase (cod,price,user,date,quantity,id_movie) VALUES (97,10,'ilosbie2','2019-10-20',76,22);
+INSERT INTO purchase (cod,price,user,date,quantity,id_movie) VALUES (98,1,'kwright3','2013-07-21',29,13);
+INSERT INTO purchase (cod,price,user,date,quantity,id_movie) VALUES (99,3,'lcosgry1','2005-03-03',94,34);
+INSERT INTO purchase (cod,price,user,date,quantity,id_movie) VALUES (100,3,'lanniwell9','1985-03-14',53,32);
+
 
 -- --------------------------------------------------------
 

@@ -51,19 +51,23 @@ public class ListMovies extends HttpServlet {
 
 
 		/* Recogemos los parametros user y password del formulario de login.jsp */
-
-		String usuario = request.getParameter("username");
-	   	String password = request.getParameter("password");
+		HttpSession userSession = request.getSession();
+		String usuario = (String)userSession.getAttribute("usuario");
+	   	String password =(String)userSession.getAttribute("password");
 	            	
 	    /*Comprobamos que el login es correcto y lo redireccionamos a la lista de marcas "indexBrand.jsp"
 	    sino, volvemos a la pantalla de loggin pasandole un msg_error  */
 	    
-	    if(usuario !=null && password !=null){
+	    if((usuario ==null && password ==null)){
+	    	usuario=request.getParameter("username");
+	    	password=request.getParameter("password");
+	    }
 	    	if(UtilsUsers.userIsValid(usuario, password)){
 	            try {
-	         	HttpSession userSession = request.getSession();
 	         	userSession.setAttribute("login", "True");
 	         	userSession.setAttribute("usuario", usuario);
+	         	userSession.setAttribute("password", password);
+	         	
 	            }catch (Exception e){
 	            	process(request, response);
 	            }
@@ -150,9 +154,8 @@ public class ListMovies extends HttpServlet {
 		
 		
 		
+
 	
-		response.getWriter().append("Served at: ").append(request.getContextPath());
-	};
 	
 
 	protected void delete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

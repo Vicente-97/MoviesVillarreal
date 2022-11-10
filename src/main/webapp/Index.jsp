@@ -21,10 +21,10 @@
 		
 	            <p id="textoUser">Usuario:
 	            <br>	            
-	            <input type="text" required name="username" id="username" >  <img alt="imagen" src="images/user.png"></p>
+	            <input type="text" required name="username" id="username" required>  <img alt="imagen" src="images/user.png"></p>
 	            
 	            <p id="textoContrasena">Contraseña: 	             
-	            <input type="password" required name="password" id="password">  <img alt="password" src="images/password.png"></p>
+	            <input type="password" required name="password" id="password" required>  <img alt="password" src="images/password.png"></p>
 	            
                 <p><a href="Registro.jsp"><b>Registrese aquí</b></a>   <input type="submit" id="Enviar" value="Enviar"></p>
                

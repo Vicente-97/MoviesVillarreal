@@ -40,6 +40,15 @@ public class Movies {
 		this.category = category;
 		this.purchases=new ArrayList<>();
 	}
+	public Movies(String title, String description_movie, Double price, Category category) {
+		super();
+		this.title = title;
+		this.description_movie = description_movie;
+		this.price = price;
+		this.category = category;
+		this.purchases=new ArrayList<>();
+	}
+	
 
 	public Integer getId() {
 		return id;
