@@ -1,6 +1,7 @@
 package com.jacaranda.java;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import org.hibernate.Session;
 import org.hibernate.query.Query;
@@ -10,9 +11,9 @@ import com.jacaranda.java.Conn;
 
 public class CRUDMovies {
 
-	public static Movies getMovie(String name ) {
+	public static Movies getMovie(Integer id ) {
 		Session session = Conn.getSession();
-		Movies movie = (Movies) session.get(Movies.class,name);
+		Movies movie = (Movies) session.get(Movies.class,id);
 		return movie;
 	}
 	
@@ -60,5 +61,17 @@ public class CRUDMovies {
 		return movie;
 	}
 	
+	public static List<Integer> MoviesMaxId() {
+		
+	    boolean valid = false;
+		Session session = Conn.getSession();
+		Query<Integer> query = session.createQuery("SELECT MAX(id) FROM com.jacaranda.java.Movies");
+		List<Integer> Movies_maxID=query.getResultList();
+		    
+	
+		return Movies_maxID;
+	}
+	
+
 	
 }

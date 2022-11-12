@@ -3,6 +3,14 @@
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+   <%--  <%
+ 	String isSession = (String) session.getAttribute("login");
+	String userSession = (String) session.getAttribute("usuario");
+	
+	if(isSession == null && userSession == null){
+		response.sendRedirect("error.jsp?msg=No tienes permisos, haz login.");
+	}  
+%> --%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,24 +23,24 @@
 <form action="AddArticleMethod" method="post" id="addUser">			
 		
 			<h3>Rellene los siguientes datos:</h3>
-			
+					
 					Título: <input type="text" name="title" id="title" required><br>
 					
-					Descripción de la Película: <input type="text" name="description"  id="description" required><br>
+					Descripción de la Película: <textarea rows="5" cols="50" name="description" id="description" required></textarea><br>
 					
 					Precio:<input type="number" step="any" name="precio" id="precio" required>
 					
 					
 					Categoría:
 					<br>
-					<select>
+					<select id="categorias" name="categorias">
 					
 					<%
 						ArrayList<Category> listCategory = CRUDCategory.getCategory();
 						for(Category c: listCategory){
 							%>
-							<option id="category_name" value=<%c.getId();%>><%=c.getGenres() %></option>
-							
+							<option value="<%=c.getId()%>"><%=c.getGenres() %></option>
+					<%-- 	value=<%c.getId();	 --%>
 						<%} %>
 					
 					
