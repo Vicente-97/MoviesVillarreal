@@ -24,8 +24,8 @@
 					
 					Fecha de nacimiento: <input type="date" name="date" required><br>
 					
-					Género: Hombre<input type="radio" name="gender" required>
-					Mujer <input type="radio" name="gender" required>
+					Género: Hombre<input type="radio" name="gender" value="Male" required>
+					Mujer <input type="radio" name="gender"  value="Female" required>
 					
 					
 					 <input type="hidden" name="admin" value="0">

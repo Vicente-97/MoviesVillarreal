@@ -3,14 +3,14 @@
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-   <%--  <%
+     <%
  	String isSession = (String) session.getAttribute("login");
 	String userSession = (String) session.getAttribute("usuario");
 	
 	if(isSession == null && userSession == null){
 		response.sendRedirect("error.jsp?msg=No tienes permisos, haz login.");
 	}  
-%> --%>
+%> 
 <!DOCTYPE html>
 <html>
 <head>

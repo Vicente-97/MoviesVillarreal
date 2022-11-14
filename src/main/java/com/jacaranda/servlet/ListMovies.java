@@ -39,7 +39,7 @@ public class ListMovies extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		doPost(request, response);
+		process(request, response);
 	}
 
 	/**
@@ -49,6 +49,7 @@ public class ListMovies extends HttpServlet {
 
 
 		/* Recogemos los parametros user y password del formulario de login.jsp */
+		
 		HttpSession userSession = request.getSession();
 		String usuario = (String)userSession.getAttribute("usuario");
 	   	String password =(String)userSession.getAttribute("password");
@@ -59,7 +60,11 @@ public class ListMovies extends HttpServlet {
 	    if((usuario ==null && password ==null)){
 	    	usuario=request.getParameter("username");
 	    	password=request.getParameter("password");
+	    	if((usuario ==null||usuario.isEmpty()) && (password ==null||password.isEmpty())){
+	    		process(request, response);
+	    	}
 	    }
+	    
 	    	if(UtilsUsers.userIsValid(usuario, password)){
 	            try {
 	         	userSession.setAttribute("login", "True");
@@ -99,6 +104,7 @@ public class ListMovies extends HttpServlet {
 								+ "	</div>\r\n"
 								+ "	<br>");
 	    			}
+	    			out.println("     <a href=\"Index.jsp\" ><button name=\\\"CloseSesssion\\\" id=\\\"CloseSesssion\\\" value=<\\\"CloseSesssion\\\">Close Session</button></a>");
 	    			out.println("<div>"
 	    					+ "<table>"
 	    					+ "<tr>"
@@ -185,7 +191,7 @@ public class ListMovies extends HttpServlet {
    				+ "            </div>"
    				+ "            <div id=\"der\">"
    				+ "                <h1 id=\"TextoGrande\"><FONT color=\"black\">¡Vaya!</FONT></h1>"
-   				+ "                <h3 id=\"TextoChico\"><FONT color=\"black\">No hemos podido encontrar<br> la página que buscas.<br><br>Pulsa el icono arriba a la izquierda para volver.</FONT></h3>"
+   				+ "                <h3 id=\"TextoChico\"><FONT color=\"black\">Error al mostrar la lista<br>de películas.<br><br>Pulsa el icono arriba a la izquierda para volver.</FONT></h3>"
    				+ "                <h7 id=\"codError\">Codigo de error: 404</h7>"
    				+ "            </div>"
    				+ "</body>"

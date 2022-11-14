@@ -22,6 +22,7 @@ public class Conn {
 		private static Session session = sf.openSession();
 		
 		public static Session getSession() {	
+			
 			return session;
 		}
 }
