@@ -15,7 +15,7 @@
 			
 					Username: <input type="text" name="username" id="username" required><br>
 					
-					Password: <input type="password" name="password"  id="password" required><br>
+					Password: <input type="password" name="password"  id="password"  required><br>
 					
 					First_name:<input type="text" name="first_name" id="first_name" required>
 					

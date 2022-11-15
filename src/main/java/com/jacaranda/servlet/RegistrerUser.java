@@ -3,6 +3,8 @@ package com.jacaranda.servlet;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -42,20 +44,32 @@ public class RegistrerUser extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	//Recojo los parametros y le hago un trim para que pueda añadir nombres con espacio.
 		String username = request.getParameter("username");
-		username.trim();
+		
 		String password = request.getParameter("password");
+		password.trim();
 		String first_name = request.getParameter("first_name");
+		LocalDateTime date=null;
 		String last_name = request.getParameter("last_name");
-		LocalDate date = LocalDate.parse(request.getParameter("date"));
+		try {
+			 date = LocalDateTime.of(LocalDate.parse(request.getParameter("date")), LocalTime.now());
+			
+		}catch (Exception e) {
+			process(request, response);
+		}
 		Integer admin = Integer.valueOf(request.getParameter("admin"));
 		String gender = request.getParameter("gender");
 		
-		if(CRUDUser.getUser(username)==null){
-		User u  = new User(username,Md5encript.getMD5(password),first_name,last_name,
-				date,gender,admin);
-		CRUDUser.saveUser(u);
-		response.sendRedirect(request.getContextPath()+"/Index.jsp");
+		//compruebo que no sea nulo cad parametro
+		if(username!=null && password!=null && first_name!=null && last_name!=null&& date!=null &&admin!=null&& gender!=null) {
+			//busco al usuario en la base de datos y compruebo que no existe. Compruebo que la contraseña es superior a 7 caracteres.
+			if(CRUDUser.getUser(username)==null && password.length()>=7){
+				User u  = new User(username.trim(),Md5encript.getMD5(password),first_name.trim(),last_name.trim(),
+						date,gender,admin);
+				CRUDUser.saveUser(u);
+				response.sendRedirect(request.getContextPath()+"/Index.jsp");
+		}
 			
 		}else{
 			response.setContentType("text/html;charset=UTF-8");
@@ -94,7 +108,7 @@ public class RegistrerUser extends HttpServlet {
    				+ "            </div>"
    				+ "            <div id=\"der\">"
    				+ "                <h1 id=\"TextoGrande\"><FONT color=\"black\">¡Vaya!</FONT></h1>"
-   				+ "                <h3 id=\"TextoChico\"><FONT color=\"black\">Error al añadir una película<br>Prueba<br><br>Pulsa el icono arriba a la izquierda para volver.</FONT></h3>"
+   				+ "                <h3 id=\"TextoChico\"><FONT color=\"black\">Error al añadir el usuario<br><br><br>Pulsa el icono arriba a la izquierda para volver.</FONT></h3>"
    				+ "                <h7 id=\"codError\">Codigo de error: 404</h7>"
    				+ "            </div>"
    				+ "</body>"

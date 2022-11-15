@@ -191,7 +191,7 @@ public class ListMovies extends HttpServlet {
    				+ "            </div>"
    				+ "            <div id=\"der\">"
    				+ "                <h1 id=\"TextoGrande\"><FONT color=\"black\">¡Vaya!</FONT></h1>"
-   				+ "                <h3 id=\"TextoChico\"><FONT color=\"black\">Error al mostrar la lista<br>de películas.<br><br>Pulsa el icono arriba a la izquierda para volver.</FONT></h3>"
+   				+ "                <h3 id=\"TextoChico\"><FONT color=\"black\">Error en el Inicio de sesión.<br><br>Pulsa el icono arriba a la izquierda para volver.</FONT></h3>"
    				+ "                <h7 id=\"codError\">Codigo de error: 404</h7>"
    				+ "            </div>"
    				+ "</body>"

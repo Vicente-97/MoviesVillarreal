@@ -1,6 +1,7 @@
 package com.jacaranda.java;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -23,13 +24,13 @@ public class User {
 	private String password;
 	private String first_name;
 	private String last_name;
-	private LocalDate date;
+	private LocalDateTime date;
 	private String gender;
 	private Integer admin;
 	@OneToMany(mappedBy="user")
 	private List<Purchase>purchases;
 	
-	public User(String username, String password, String first_name, String last_name, LocalDate date, String gender,
+	public User(String username, String password, String first_name, String last_name, LocalDateTime date, String gender,
 			Integer admin) {
 		super();
 		this.username = username;
@@ -78,11 +79,11 @@ public class User {
 		this.last_name = last_name;
 	}
 
-	public LocalDate getDate() {
+	public LocalDateTime getDate() {
 		return date;
 	}
 
-	public void setDate(LocalDate date) {
+	public void setDate(LocalDateTime date) {
 		this.date = date;
 	}
 

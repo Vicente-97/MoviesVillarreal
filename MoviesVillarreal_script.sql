@@ -306,7 +306,7 @@ INSERT INTO purchase (cod,price,user,date,quantity,id_movie) VALUES (100,3,'lann
 
 CREATE TABLE `users` (
   `username` varchar(50) NOT NULL,
-  `password` varchar(100) NOT NULL,
+  `password` varchar(32) NOT NULL,
   `first_name` varchar(100) NOT NULL,
   `last_name` varchar(100) NOT NULL,
   `date` date NOT NULL,
