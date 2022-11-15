@@ -48,14 +48,14 @@ public class ListMovies extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 
-		/* Recogemos los parametros user y password del formulario de login.jsp */
 		
+		//recupero la session.
 		HttpSession userSession = request.getSession();
+		//recojo los parámetros del formulario.
 		String usuario = (String)userSession.getAttribute("usuario");
 	   	String password =(String)userSession.getAttribute("password");
 	            	
-	    /*Comprobamos que el login es correcto y lo redireccionamos a la lista de marcas "indexBrand.jsp"
-	    sino, volvemos a la pantalla de loggin pasandole un msg_error  */
+	    
 	    
 	    if((usuario ==null && password ==null)){
 	    	usuario=request.getParameter("username");

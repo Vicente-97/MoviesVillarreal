@@ -43,6 +43,7 @@ public class RegistrerUser extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String username = request.getParameter("username");
+		username.trim();
 		String password = request.getParameter("password");
 		String first_name = request.getParameter("first_name");
 		String last_name = request.getParameter("last_name");
