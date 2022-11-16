@@ -47,6 +47,7 @@ public class ListMovies extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+		HttpSession userSession = request.getSession();
 		//compruebo los parámetros
 		String usuario=request.getParameter("username");
     	String password=request.getParameter("password");
@@ -58,7 +59,6 @@ public class ListMovies extends HttpServlet {
 //	   	String password =(String)userSession.getAttribute("password");
     	
     	//recojo la session
-    	HttpSession userSession = request.getSession();
 	    
 	    
 	    if((usuario ==null && password ==null)){	    	
