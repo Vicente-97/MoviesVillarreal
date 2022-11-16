@@ -58,18 +58,20 @@ public class AddArticleMethod extends HttpServlet {
 		
 		Category category=CRUDCategory.getCategory(category_id);
 		
-		if(CRUDMovies.getMovie(id+1)==null) {
-		Movies movie = new Movies(id+1,title, description, price, category);
-		CRUDMovies.saveMovie(movie);
-//		response.sendRedirect(request.getContextPath()+"/ListMovies");
-		
-		
-		ServletContext context = this.getServletContext(); 
-		RequestDispatcher dispatcher = context.getRequestDispatcher("/ListMovies"); 
-
-
-		dispatcher.forward(request, response);
 			
+			if(CRUDMovies.getMovie(id+1)==null&&CRUDMovies.getMovieTitle(title)==null&& title!=null && description!=null && price !=null && category_id!=null) {
+				Movies movie = new Movies(id+1,title.trim(), description.trim(), price, category);
+				CRUDMovies.saveMovie(movie);
+//		response.sendRedirect(request.getContextPath()+"/ListMovies");
+				
+				
+				ServletContext context = this.getServletContext(); 
+				RequestDispatcher dispatcher = context.getRequestDispatcher("/ListMovies"); 
+				
+				
+				dispatcher.forward(request, response);
+				
+		
 		}else{
 			
        		process(request, response);
@@ -94,7 +96,9 @@ public class AddArticleMethod extends HttpServlet {
    				+ " "
    				+ "</head>"
    				+ "<body background=\"images/fondo_movie.jpg\">"
-   				+ "      <a href=\"Index.jsp\"><img src=\"images/logo_movie-removebg.png\" width=\"110px\" height=\"100px\" id=\"logo\"></a>"
+   				+ "<form action=\"ListMovies\" method=\"post\">"
+   				+ "<p><button type=\"submit\"><img src=\"images/logo_movie-removebg.png\" width=\"110px\" height=\"100px\" id=\"logo\" ></button></p>"
+   				+ "</form>"
    				+ "            <hr>"
    				+ "            <div id=\"izq\">"
    				+ "                "

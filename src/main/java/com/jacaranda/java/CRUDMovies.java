@@ -29,6 +29,7 @@ public class CRUDMovies {
 			
 		} catch (Exception e) {
 			e.printStackTrace();
+			session.getTransaction().rollback();
 		}
 		return resultado;
 	}
@@ -46,7 +47,8 @@ public class CRUDMovies {
 			resultado=true;
 			
 		} catch (Exception e) {
-			e.printStackTrace();	
+			e.printStackTrace();
+			session.getTransaction().rollback();
 		}
 		
 		return resultado;
@@ -70,6 +72,21 @@ public class CRUDMovies {
 		    
 	
 		return Movies_maxID;
+	}
+	
+	public static Movies getMovieTitle(String title){
+		
+		Session session = Conn.getSession();
+	
+		Movies movies=null;
+		try {
+			Query<Movies> query = session.createQuery("SELECT p FROM com.jacaranda.java.Movies p WHERE title='"+ title +"'",Movies.class);
+			movies = query.getSingleResult();
+			return movies;
+		}catch (Exception e) {
+			return movies;
+		}
+		
 	}
 	
 

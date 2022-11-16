@@ -24,13 +24,13 @@ public class User {
 	private String password;
 	private String first_name;
 	private String last_name;
-	private LocalDateTime date;
+	private LocalDate date;
 	private String gender;
 	private Integer admin;
 	@OneToMany(mappedBy="user")
 	private List<Purchase>purchases;
 	
-	public User(String username, String password, String first_name, String last_name, LocalDateTime date, String gender,
+	public User(String username, String password, String first_name, String last_name, LocalDate date, String gender,
 			Integer admin) {
 		super();
 		this.username = username;
@@ -79,11 +79,11 @@ public class User {
 		this.last_name = last_name;
 	}
 
-	public LocalDateTime getDate() {
+	public LocalDate getDate() {
 		return date;
 	}
 
-	public void setDate(LocalDateTime date) {
+	public void setDate(LocalDate date) {
 		this.date = date;
 	}
 

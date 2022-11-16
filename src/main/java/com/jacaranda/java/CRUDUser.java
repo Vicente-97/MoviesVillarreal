@@ -26,6 +26,7 @@ public class CRUDUser {
 			
 		} catch (Exception e) {
 			e.printStackTrace();
+			session.getTransaction().rollback();
 		}
 		return resultado;
 	}
@@ -44,6 +45,7 @@ public class CRUDUser {
 			
 		} catch (Exception e) {
 			e.printStackTrace();	
+			session.getTransaction().rollback();
 		}
 		
 		return resultado;

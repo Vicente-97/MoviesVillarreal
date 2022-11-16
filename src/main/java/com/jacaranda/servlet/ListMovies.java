@@ -47,19 +47,23 @@ public class ListMovies extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-
-		
+		//compruebo los parámetros
+		String usuario=request.getParameter("username");
+    	String password=request.getParameter("password");
+    	
 		//recupero la session.
-		HttpSession userSession = request.getSession();
-		//recojo los parámetros del formulario.
-		String usuario = (String)userSession.getAttribute("usuario");
-	   	String password =(String)userSession.getAttribute("password");
-	            	
+//		HttpSession userSession = request.getSession();
+		//recojo los atributos y compruebo
+//		String usuario = (String)userSession.getAttribute("usuario");
+//	   	String password =(String)userSession.getAttribute("password");
+    	
+    	//recojo la session
+    	HttpSession userSession = request.getSession();
 	    
 	    
-	    if((usuario ==null && password ==null)){
-	    	usuario=request.getParameter("username");
-	    	password=request.getParameter("password");
+	    if((usuario ==null && password ==null)){	    	
+	    	 usuario = (String)userSession.getAttribute("usuario");
+		   	 password =(String)userSession.getAttribute("password");
 	    	if((usuario ==null||usuario.isEmpty()) && (password ==null||password.isEmpty())){
 	    		process(request, response);
 	    	}

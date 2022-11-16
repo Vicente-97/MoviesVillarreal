@@ -50,10 +50,10 @@ public class RegistrerUser extends HttpServlet {
 		String password = request.getParameter("password");
 		password.trim();
 		String first_name = request.getParameter("first_name");
-		LocalDateTime date=null;
+		LocalDate date=null;
 		String last_name = request.getParameter("last_name");
 		try {
-			 date = LocalDateTime.of(LocalDate.parse(request.getParameter("date")), LocalTime.now());
+			 date = LocalDate.parse(request.getParameter("date"));
 			
 		}catch (Exception e) {
 			process(request, response);
@@ -62,14 +62,14 @@ public class RegistrerUser extends HttpServlet {
 		String gender = request.getParameter("gender");
 		
 		//compruebo que no sea nulo cad parametro
-		if(username!=null && password!=null && first_name!=null && last_name!=null&& date!=null &&admin!=null&& gender!=null) {
+		
 			//busco al usuario en la base de datos y compruebo que no existe. Compruebo que la contraseña es superior a 7 caracteres.
-			if(CRUDUser.getUser(username)==null && password.length()>=7){
+			if(CRUDUser.getUser(username)==null && password.length()>=7&&username!=null && password!=null && first_name!=null && last_name!=null&& date!=null &&admin!=null&& gender!=null){
 				User u  = new User(username.trim(),Md5encript.getMD5(password),first_name.trim(),last_name.trim(),
 						date,gender,admin);
 				CRUDUser.saveUser(u);
 				response.sendRedirect(request.getContextPath()+"/Index.jsp");
-		}
+		
 			
 		}else{
 			response.setContentType("text/html;charset=UTF-8");
