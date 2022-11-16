@@ -48,18 +48,27 @@ public class AddArticleMethod extends HttpServlet {
 		
 		
 		List<Integer> listCategory=CRUDMovies.MoviesMaxId();
+		Integer id=null;
+		String title=null;
+		String description=null;
+		Double price=null;
+		Integer category_id=null;
 		
-		Integer id = listCategory.get(0);
 		
-		String title = request.getParameter("title");
-		String description = request.getParameter("description");
-		Double price = Double.valueOf(request.getParameter("precio"));
-		Integer category_id = Integer.parseInt(request.getParameter("categorias"));
-		
-		Category category=CRUDCategory.getCategory(category_id);
-		
+		try {
 			
-			if(CRUDMovies.getMovie(id+1)==null&&CRUDMovies.getMovieTitle(title)==null&& title!=null && description!=null && price !=null && category_id!=null) {
+		
+			id = listCategory.get(0);
+			
+			title = request.getParameter("title");
+			description = request.getParameter("description");
+			price = Double.valueOf(request.getParameter("precio"));
+			category_id = Integer.parseInt(request.getParameter("categorias"));
+			
+			Category category=CRUDCategory.getCategory(category_id);
+			
+			
+			if(CRUDMovies.getMovie(id+1)==null&&CRUDMovies.getMovieTitle(title)==null&& (title!=null&& !title.isEmpty()) && (description!=null&& !description.isEmpty()) && (price !=null&& !price.isNaN()) && category_id!=null&&category!=null) {
 				Movies movie = new Movies(id+1,title.trim(), description.trim(), price, category);
 				CRUDMovies.saveMovie(movie);
 //		response.sendRedirect(request.getContextPath()+"/ListMovies");
@@ -71,12 +80,15 @@ public class AddArticleMethod extends HttpServlet {
 				
 				dispatcher.forward(request, response);
 				
-		
-		}else{
+				
+			}else{
+				
+				process(request, response);
+			}
 			
-       		process(request, response);
+		}catch (Exception e) {
+			process(request, response);
 		}
-       		
        	
        		
 	}
