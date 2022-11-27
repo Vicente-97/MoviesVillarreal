@@ -14,6 +14,8 @@ import javax.servlet.http.HttpSession;
 
 import com.jacaranda.java.CRUDMovies;
 import com.jacaranda.java.CRUDUser;
+import com.jacaranda.java.Carrito;
+import com.jacaranda.java.MovieCarrito;
 import com.jacaranda.java.Movies;
 import com.jacaranda.java.UtilsUsers;
 
@@ -38,6 +40,8 @@ public class ListMovies extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		//Para cuando venga de comprar una pelicula, es decir vendrá de buy.jsp y la url no contendrá parámetros.
+		doPost(request, response);
 		
 		process(request, response);
 	}
@@ -51,6 +55,13 @@ public class ListMovies extends HttpServlet {
 		//recupero los parametros
 		String usuario=request.getParameter("username");
     	String password=request.getParameter("password");
+    	
+    	Carrito carro = (Carrito) userSession.getAttribute("carrito");
+    	if(carro==null) {
+    		carro= new Carrito();
+    		userSession.setAttribute("carrito", carro);
+    	}
+    	
     	
 
 	    //compruebo si son nulos y si lo son recupero los atributos de la session
@@ -101,7 +112,14 @@ public class ListMovies extends HttpServlet {
 								+ "	</div>\r\n"
 								+ "	<br>");
 	    			}
-	    			out.println("     <a href=\"Index.jsp\" ><button name=\\\"CloseSesssion\\\" id=\\\"CloseSesssion\\\" value=<\\\"CloseSesssion\\\">Close Session</button></a>");
+	    			out.println("<div align=\"right\">"
+	    					+ "<a href=\"Carrito.jsp\" <button name=\"carrito\" ><img height=\"50px\" width=\"50px\" src=\"images/carrito_1.png\"></button></a>");
+	    			out.println("<p>Artículos en el carrito: "+carro.getListPurchase().size()+"</p>");
+	    			out.println("<p><a href=\"Pedidos.jsp\" color=\"black\"><button name=\"pedidos\"> Mis pedidos</button></a></p>");
+	    			out.println("<p> Usuario : "+usuario+"</p>");
+	    			out.println( "</div>");
+	    			out.println("<div align=\"right\"><a href=\"Index.jsp\" align=\"right\" ><button align=\"right\"  name=\\\"CloseSesssion\\\" id=\\\"CloseSesssion\\\" value=<\\\"CloseSesssion\\\">Close Session</button></a></div>");
+	    			
 	    			out.println("<div>"
 	    					+ "<table>"
 	    					+ "<tr>"
@@ -109,8 +127,13 @@ public class ListMovies extends HttpServlet {
 	    					+ "<th>title</th>"
 	    					+ "<th>Description</th>"
 	    					+ "<th>Price</th>"
-	    					+ "<th>Category_id</th>"
+	    					+ "<th>Img</th>"
+	    					+ "<th>Stock</th>"
+	    					+ "<th>Category</th>"
+	    					+ "<th>Zona de Compra</th>"
 	    					+ "</tr>");
+	    			
+	    			
 	    			
 	    			
 	    			Iterator<Movies> iterator = listMovie.iterator();
@@ -126,8 +149,25 @@ public class ListMovies extends HttpServlet {
 	    							+ "<td>"+movie.getId()+"</td>"
 	    							+ "<td>"+movie.getTitle()+"</td>"
 	    							+ "<td>"+movie.getDescription_movie()+"</td>"
-	    							+ "<td>"+movie.getPrice()+"</td>"
-	    							+ "<td>"+movie.getCategory().getGenres()+"</td>");
+	    							+ "<td>"+movie.getPrice()+"</td>");
+	    					if(movie.getImg()!=null) {
+	    						
+	    						out.println("<td><img height=\"200px\" width=\\\"200px\\\"  alt=\"\"  src=\"./DowloadImg?id="+movie.getId()+"\">"+"</td>");
+	    						
+	    					}else {
+//	    						<img  height=\"200px\" width=\"200px\"  alt=\"\"  src=\"images/noImage.png/>
+	    						out.println("<td><p>No photo</p></td>");
+	    					}out.println(
+	    							 "<td>"+movie.getStock()+"</td>"
+	    							+ "<td>"+movie.getCategory().getGenres()+"</td>"
+	    							+ "<td><form action=\"CarritoCompra.jsp\" method=\"post\">"
+	    							+ "<input type=\"number\" name=\"cantidad\" min=1 >"
+	    							+ "<br><button type=\"submit\" name=\"CarritoCompra\" id=\"CarritoCompra\" value="+movie.getId()+">Añadir al carrito</button><br></form></td>");
+	    						
+	    					
+	    					
+	    					
+	    					
   					
 	    							
 	    					

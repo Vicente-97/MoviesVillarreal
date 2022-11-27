@@ -8,12 +8,18 @@
 		padding: 1em;
 	}
 	
+	.imagen{
+	height: 250px;
+	width: 250px;
+	}
+	
 	#welcome{
 		float: right;
 		padding: 1em;
 		margin-top: 1%;
 		text-transform: capitalize;
 	}
+	
 	hr{
 		color:black;
 	}

@@ -19,7 +19,9 @@ public class UtilsUsers {
 
 	// Obtiene un usuario en concreto partiendo del parametro name.
 	public static User getUser(String name ) {
-		Session session = Conn.getSession();
+		Conn conn = new Conn();
+		conn.getSession();
+		Session session= conn.getSession();
 			
 		User user = (User) session.get(User.class,name);
 		return user;
@@ -28,7 +30,9 @@ public class UtilsUsers {
 	
 	// Obtiene una lista con los usuarios
 	public static ArrayList<User> getUsers(){
-		Session session = Conn.getSession();
+		Conn conn = new Conn();
+		conn.getSession();
+		Session session= conn.getSession();
 		
 		Query<User> query = session.createQuery("SELECT p FROM com.jacaranda.java.User p");
 		ArrayList<User> users = (ArrayList<User>) query.getResultList();
@@ -40,7 +44,9 @@ public class UtilsUsers {
 	public static boolean userIsValid(String username, String password) {
 		String passwordEncript= Md5encript.getMD5(password);
 	    boolean valid = false;
-		Session session = Conn.getSession();
+	    Conn conn = new Conn();
+		conn.getSession();
+		Session session= conn.getSession();
 		Query<User> query = session.createQuery("SELECT p FROM com.jacaranda.java.User p WHERE username='" + username + "'and password='"+passwordEncript+"'",User.class);
 		if(!query.getResultList().isEmpty()) {
 		    valid = true;
@@ -53,7 +59,9 @@ public class UtilsUsers {
 	 * Cerrar sesion. Limpia parametros  y atributos de la session actual.
 	 */
 	public static void closeSession () {	
-		 Session session = Conn.getSession();
+		Conn conn = new Conn();
+		conn.getSession();
+		Session session= conn.getSession();
 		 session.clear();
 	}
 

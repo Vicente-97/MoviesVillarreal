@@ -25,8 +25,8 @@ CREATE DATABASE MoviesVillarreal;
 
 USE `MoviesVillarreal`;
 --
-CREATE USER 'villarreal'@'%' IDENTIFIED BY 'vicen';
-GRANT ALL PRIVILEGES ON MoviesVillarreal.* to 'villarreal'@'%';
+ CREATE USER 'villarreal'@'%' IDENTIFIED BY 'vicen';
+ GRANT ALL PRIVILEGES ON MoviesVillarreal.* to 'villarreal'@'%';
 -- --------------------------------------------------------
 
 --
@@ -67,8 +67,10 @@ CREATE TABLE `movies` (
   `id` int(11) NOT NULL,
   `title` varchar(100) NOT NULL,
   `description_movie` varchar(100) NOT NULL,
-  `price` double NOT NULL,
-  `category_id` int(11) NOT NULL
+   `price` double NOT NULL,
+  `category_id` int(11) NOT NULL,
+  `img` longblob,
+  `stock` int(50) DEFAULT 30
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 
@@ -183,10 +185,9 @@ INSERT INTO movies (id,title,description_movie,price,category_id) VALUES (100,'S
 --
 
 CREATE TABLE `purchase` (
-  `cod` int(11) NOT NULL,
-  `price` double NOT NULL,
+   `price` double NOT NULL,
   `user` varchar(100) NOT NULL,
-  `date` date NOT NULL,
+  `date` datetime NOT NULL,
   `quantity` int(11) NOT NULL,
   `id_movie` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -196,106 +197,8 @@ CREATE TABLE `purchase` (
 --
 
 
-INSERT INTO purchase (cod,price,user,date,quantity,id_movie) VALUES (1,9,'vligertwood0','1989-05-07',69,89);
-INSERT INTO purchase (cod,price,user,date,quantity,id_movie) VALUES (2,5,'scarine5','1993-05-27',95,17);
-INSERT INTO purchase (cod,price,user,date,quantity,id_movie) VALUES (3,3,'lcosgry1','1989-10-10',64,67);
-INSERT INTO purchase (cod,price,user,date,quantity,id_movie) VALUES (4,10,'ghebbes8','1996-06-07',54,2);
-INSERT INTO purchase (cod,price,user,date,quantity,id_movie) VALUES (5,10,'lanniwell9','1992-02-22',49,96);
-INSERT INTO purchase (cod,price,user,date,quantity,id_movie) VALUES (6,8,'scarine5','1993-02-08',40,70);
-INSERT INTO purchase (cod,price,user,date,quantity,id_movie) VALUES (7,3,'kwright3','1993-10-25',15,75);
-INSERT INTO purchase (cod,price,user,date,quantity,id_movie) VALUES (8,3,'lanniwell9','2020-04-27',89,19);
-INSERT INTO purchase (cod,price,user,date,quantity,id_movie) VALUES (9,1,'kwright3','1977-10-29',92,82);
-INSERT INTO purchase (cod,price,user,date,quantity,id_movie) VALUES (10,10,'scarine5','1997-10-06',47,43);
-INSERT INTO purchase (cod,price,user,date,quantity,id_movie) VALUES (11,5,'lanniwell9','1978-03-15',92,20);
-INSERT INTO purchase (cod,price,user,date,quantity,id_movie) VALUES (12,4,'rmacellar6','1977-01-10',83,8);
-INSERT INTO purchase (cod,price,user,date,quantity,id_movie) VALUES (13,3,'ilosbie2','1988-05-29',97,84);
-INSERT INTO purchase (cod,price,user,date,quantity,id_movie) VALUES (14,4,'rmacellar6','2022-03-01',47,20);
-INSERT INTO purchase (cod,price,user,date,quantity,id_movie) VALUES (15,6,'dcorse4','2016-01-14',42,64);
-INSERT INTO purchase (cod,price,user,date,quantity,id_movie) VALUES (16,10,'lanniwell9','2020-09-28',97,85);
-INSERT INTO purchase (cod,price,user,date,quantity,id_movie) VALUES (17,1,'ghebbes8','1997-08-02',11,71);
-INSERT INTO purchase (cod,price,user,date,quantity,id_movie) VALUES (18,8,'lcosgry1','1997-02-17',13,72);
-INSERT INTO purchase (cod,price,user,date,quantity,id_movie) VALUES (19,6,'vligertwood0','2003-05-27',22,66);
-INSERT INTO purchase (cod,price,user,date,quantity,id_movie) VALUES (20,4,'ilosbie2','1999-03-05',21,98);
-INSERT INTO purchase (cod,price,user,date,quantity,id_movie) VALUES (21,8,'kwright3','1981-06-09',56,69);
-INSERT INTO purchase (cod,price,user,date,quantity,id_movie) VALUES (22,1,'vligertwood0','2019-05-29',93,61);
-INSERT INTO purchase (cod,price,user,date,quantity,id_movie) VALUES (23,8,'wburroughes7','1979-05-09',2,77);
-INSERT INTO purchase (cod,price,user,date,quantity,id_movie) VALUES (24,5,'kwright3','2010-01-16',67,66);
-INSERT INTO purchase (cod,price,user,date,quantity,id_movie) VALUES (25,2,'wburroughes7','1977-08-04',90,36);
-INSERT INTO purchase (cod,price,user,date,quantity,id_movie) VALUES (26,5,'ilosbie2','2014-07-09',84,100);
-INSERT INTO purchase (cod,price,user,date,quantity,id_movie) VALUES (27,6,'rmacellar6','2003-11-12',90,100);
-INSERT INTO purchase (cod,price,user,date,quantity,id_movie) VALUES (28,5,'lcosgry1','2007-05-29',66,46);
-INSERT INTO purchase (cod,price,user,date,quantity,id_movie) VALUES (29,5,'scarine5','2012-01-16',90,12);
-INSERT INTO purchase (cod,price,user,date,quantity,id_movie) VALUES (30,8,'wburroughes7','1995-10-09',24,56);
-INSERT INTO purchase (cod,price,user,date,quantity,id_movie) VALUES (31,4,'wburroughes7','2021-03-08',44,52);
-INSERT INTO purchase (cod,price,user,date,quantity,id_movie) VALUES (32,9,'lanniwell9','1989-10-10',58,95);
-INSERT INTO purchase (cod,price,user,date,quantity,id_movie) VALUES (33,6,'rmacellar6','2014-03-26',57,57);
-INSERT INTO purchase (cod,price,user,date,quantity,id_movie) VALUES (34,3,'ghebbes8','1988-11-30',22,27);
-INSERT INTO purchase (cod,price,user,date,quantity,id_movie) VALUES (35,7,'ghebbes8','2002-07-05',41,46);
-INSERT INTO purchase (cod,price,user,date,quantity,id_movie) VALUES (36,6,'wburroughes7','1993-07-08',57,63);
-INSERT INTO purchase (cod,price,user,date,quantity,id_movie) VALUES (37,7,'ghebbes8','1987-03-24',37,61);
-INSERT INTO purchase (cod,price,user,date,quantity,id_movie) VALUES (38,10,'kwright3','1991-12-14',39,92);
-INSERT INTO purchase (cod,price,user,date,quantity,id_movie) VALUES (39,1,'dcorse4','1991-11-28',94,81);
-INSERT INTO purchase (cod,price,user,date,quantity,id_movie) VALUES (40,7,'lanniwell9','1988-01-07',92,83);
-INSERT INTO purchase (cod,price,user,date,quantity,id_movie) VALUES (41,7,'scarine5','1995-09-30',82,49);
-INSERT INTO purchase (cod,price,user,date,quantity,id_movie) VALUES (42,9,'kwright3','2001-10-30',11,48);
-INSERT INTO purchase (cod,price,user,date,quantity,id_movie) VALUES (43,10,'dcorse4','1980-08-25',92,40);
-INSERT INTO purchase (cod,price,user,date,quantity,id_movie) VALUES (44,9,'lcosgry1','1996-05-20',80,71);
-INSERT INTO purchase (cod,price,user,date,quantity,id_movie) VALUES (45,1,'ghebbes8','2010-07-30',56,2);
-INSERT INTO purchase (cod,price,user,date,quantity,id_movie) VALUES (46,6,'ghebbes8','1984-08-22',60,4);
-INSERT INTO purchase (cod,price,user,date,quantity,id_movie) VALUES (47,6,'vligertwood0','1981-09-03',37,30);
-INSERT INTO purchase (cod,price,user,date,quantity,id_movie) VALUES (48,9,'lcosgry1','1975-11-30',58,65);
-INSERT INTO purchase (cod,price,user,date,quantity,id_movie) VALUES (49,8,'lanniwell9','2010-10-19',70,4);
-INSERT INTO purchase (cod,price,user,date,quantity,id_movie) VALUES (50,5,'lcosgry1','1997-03-23',87,46);
-INSERT INTO purchase (cod,price,user,date,quantity,id_movie) VALUES (51,7,'vligertwood0','1977-02-24',65,46);
-INSERT INTO purchase (cod,price,user,date,quantity,id_movie) VALUES (52,5,'ilosbie2','1991-10-20',7,89);
-INSERT INTO purchase (cod,price,user,date,quantity,id_movie) VALUES (53,10,'dcorse4','1982-11-12',27,85);
-INSERT INTO purchase (cod,price,user,date,quantity,id_movie) VALUES (54,4,'wburroughes7','1981-02-03',47,69);
-INSERT INTO purchase (cod,price,user,date,quantity,id_movie) VALUES (55,7,'kwright3','1978-10-24',60,2);
-INSERT INTO purchase (cod,price,user,date,quantity,id_movie) VALUES (56,7,'rmacellar6','2012-03-24',78,98);
-INSERT INTO purchase (cod,price,user,date,quantity,id_movie) VALUES (57,1,'wburroughes7','1983-01-07',63,76);
-INSERT INTO purchase (cod,price,user,date,quantity,id_movie) VALUES (58,2,'dcorse4','2012-01-02',20,13);
-INSERT INTO purchase (cod,price,user,date,quantity,id_movie) VALUES (59,7,'scarine5','1976-04-09',43,7);
-INSERT INTO purchase (cod,price,user,date,quantity,id_movie) VALUES (60,3,'lanniwell9','2018-12-10',18,57);
-INSERT INTO purchase (cod,price,user,date,quantity,id_movie) VALUES (61,5,'ghebbes8','2008-10-14',79,32);
-INSERT INTO purchase (cod,price,user,date,quantity,id_movie) VALUES (62,2,'wburroughes7','2022-04-23',4,60);
-INSERT INTO purchase (cod,price,user,date,quantity,id_movie) VALUES (63,10,'lcosgry1','1999-04-01',97,81);
-INSERT INTO purchase (cod,price,user,date,quantity,id_movie) VALUES (64,6,'vligertwood0','2015-05-04',48,47);
-INSERT INTO purchase (cod,price,user,date,quantity,id_movie) VALUES (65,7,'vligertwood0','2007-01-20',41,40);
-INSERT INTO purchase (cod,price,user,date,quantity,id_movie) VALUES (66,10,'dcorse4','1989-08-11',76,42);
-INSERT INTO purchase (cod,price,user,date,quantity,id_movie) VALUES (67,3,'lanniwell9','1984-04-13',27,35);
-INSERT INTO purchase (cod,price,user,date,quantity,id_movie) VALUES (68,10,'rmacellar6','1983-04-06',64,37);
-INSERT INTO purchase (cod,price,user,date,quantity,id_movie) VALUES (69,3,'kwright3','1987-08-03',20,55);
-INSERT INTO purchase (cod,price,user,date,quantity,id_movie) VALUES (70,10,'vligertwood0','1991-03-19',13,93);
-INSERT INTO purchase (cod,price,user,date,quantity,id_movie) VALUES (71,9,'vligertwood0','2017-03-14',22,90);
-INSERT INTO purchase (cod,price,user,date,quantity,id_movie) VALUES (72,3,'wburroughes7','2004-09-03',100,36);
-INSERT INTO purchase (cod,price,user,date,quantity,id_movie) VALUES (73,4,'kwright3','1997-02-26',34,38);
-INSERT INTO purchase (cod,price,user,date,quantity,id_movie) VALUES (74,10,'rmacellar6','2001-01-22',9,12);
-INSERT INTO purchase (cod,price,user,date,quantity,id_movie) VALUES (75,6,'ilosbie2','2017-07-11',77,8);
-INSERT INTO purchase (cod,price,user,date,quantity,id_movie) VALUES (76,8,'vligertwood0','2006-09-06',75,34);
-INSERT INTO purchase (cod,price,user,date,quantity,id_movie) VALUES (77,2,'rmacellar6','2006-09-10',33,30);
-INSERT INTO purchase (cod,price,user,date,quantity,id_movie) VALUES (78,9,'ilosbie2','1975-12-15',69,93);
-INSERT INTO purchase (cod,price,user,date,quantity,id_movie) VALUES (79,1,'rmacellar6','1986-11-12',25,14);
-INSERT INTO purchase (cod,price,user,date,quantity,id_movie) VALUES (80,4,'lcosgry1','2016-10-27',100,35);
-INSERT INTO purchase (cod,price,user,date,quantity,id_movie) VALUES (81,5,'dcorse4','1983-04-25',50,6);
-INSERT INTO purchase (cod,price,user,date,quantity,id_movie) VALUES (82,5,'lcosgry1','2016-10-07',52,98);
-INSERT INTO purchase (cod,price,user,date,quantity,id_movie) VALUES (83,7,'dcorse4','1991-05-09',85,47);
-INSERT INTO purchase (cod,price,user,date,quantity,id_movie) VALUES (84,5,'lcosgry1','2010-08-29',84,77);
-INSERT INTO purchase (cod,price,user,date,quantity,id_movie) VALUES (85,2,'ghebbes8','1994-08-02',18,81);
-INSERT INTO purchase (cod,price,user,date,quantity,id_movie) VALUES (86,4,'ghebbes8','1987-11-18',26,19);
-INSERT INTO purchase (cod,price,user,date,quantity,id_movie) VALUES (87,2,'vligertwood0','1989-03-10',88,94);
-INSERT INTO purchase (cod,price,user,date,quantity,id_movie) VALUES (88,7,'rmacellar6','1999-06-13',82,83);
-INSERT INTO purchase (cod,price,user,date,quantity,id_movie) VALUES (89,7,'scarine5','1999-04-27',64,72);
-INSERT INTO purchase (cod,price,user,date,quantity,id_movie) VALUES (90,7,'scarine5','2018-12-05',92,10);
-INSERT INTO purchase (cod,price,user,date,quantity,id_movie) VALUES (91,6,'dcorse4','1986-08-21',35,28);
-INSERT INTO purchase (cod,price,user,date,quantity,id_movie) VALUES (92,3,'scarine5','1991-10-30',56,42);
-INSERT INTO purchase (cod,price,user,date,quantity,id_movie) VALUES (93,10,'kwright3','2013-10-23',63,43);
-INSERT INTO purchase (cod,price,user,date,quantity,id_movie) VALUES (94,9,'ghebbes8','1986-03-13',10,94);
-INSERT INTO purchase (cod,price,user,date,quantity,id_movie) VALUES (95,3,'rmacellar6','1989-08-14',50,57);
-INSERT INTO purchase (cod,price,user,date,quantity,id_movie) VALUES (96,9,'ilosbie2','2012-04-09',10,12);
-INSERT INTO purchase (cod,price,user,date,quantity,id_movie) VALUES (97,10,'ilosbie2','2019-10-20',76,22);
-INSERT INTO purchase (cod,price,user,date,quantity,id_movie) VALUES (98,1,'kwright3','2013-07-21',29,13);
-INSERT INTO purchase (cod,price,user,date,quantity,id_movie) VALUES (99,3,'lcosgry1','2005-03-03',94,34);
-INSERT INTO purchase (cod,price,user,date,quantity,id_movie) VALUES (100,3,'lanniwell9','1985-03-14',53,32);
+INSERT INTO purchase (price,user,date,quantity,id_movie) VALUES (9,'vligertwood0','1989-05-07 00:00:00',69,89);
+
 
 
 -- --------------------------------------------------------
@@ -360,12 +263,12 @@ MODIFY `id` INT NOT NULL AUTO_INCREMENT;
 -- Indices de la tabla `purchase`
 --
 ALTER TABLE `purchase`
-  ADD PRIMARY KEY (`cod`,`user`,`id_movie`),
+  ADD PRIMARY KEY (`user`,`date`,`id_movie`),
   ADD KEY `user` (`user`),
   ADD KEY `id_movie` (`id_movie`);
   
 ALTER TABLE `purchase`
-MODIFY `cod` INT NOT NULL AUTO_INCREMENT;
+MODIFY `date` DATETIME NOT NULL;
 
 --
 -- Indices de la tabla `users`

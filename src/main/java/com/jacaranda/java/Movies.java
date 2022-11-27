@@ -11,6 +11,8 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
+import java.sql.Blob;
+
 @Entity (name="movies")
 public class Movies {
 	@Id
@@ -18,6 +20,8 @@ public class Movies {
 	private String title;
 	private String description_movie;
 	private Double price;
+	private Blob img;
+	private Integer stock;
 	
 	@ManyToOne
 	@JoinColumn(name="category_id")
@@ -31,12 +35,13 @@ public class Movies {
 		super();
 	}
 
-	public Movies(Integer id, String title, String description_movie, Double price, Category category) {
+	public Movies(Integer id, String title, String description_movie, Double price, Category category, Integer stock) {
 		super();
 		this.id = id;
 		this.title = title;
 		this.description_movie = description_movie;
 		this.price = price;
+		this.stock=stock;
 		this.category = category;
 		this.purchases=new ArrayList<>();
 	}
@@ -131,6 +136,22 @@ public class Movies {
 
 	public void setPurchases(List<Purchase> purchases) {
 		this.purchases = purchases;
+	}
+
+	public Integer getStock() {
+		return stock;
+	}
+
+	public void setStock(Integer stock) {
+		this.stock = stock;
+	}
+
+	public Blob getImg() {
+		return img;
+	}
+
+	public void setImg(Blob img) {
+		this.img = img;
 	}
 	
 	

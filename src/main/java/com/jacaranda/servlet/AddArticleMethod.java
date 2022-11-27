@@ -1,28 +1,39 @@
 package com.jacaranda.servlet;
 
+import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.PrintWriter;
+import java.sql.Blob;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
+import javax.servlet.ServletOutputStream;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.Part;
+
+import org.hibernate.Hibernate;
 
 import com.jacaranda.java.CRUDCategory;
 import com.jacaranda.java.CRUDMovies;
 import com.jacaranda.java.Category;
+import com.jacaranda.java.Conn;
 import com.jacaranda.java.Movies;
 
 /**
  * Servlet implementation class AddArticleMethod
  */
 @WebServlet("/AddArticleMethod")
+@MultipartConfig(maxFileSize=1024*1024*50, maxRequestSize =1024*1024*100 )
 public class AddArticleMethod extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	
        
     /**
      * @see HttpServlet#HttpServlet()
@@ -53,6 +64,14 @@ public class AddArticleMethod extends HttpServlet {
 		String description=null;
 		Double price=null;
 		Integer category_id=null;
+		Integer stock=null;
+		Part part =request.getPart("uploadImg");
+		
+		InputStream fileContent = part.getInputStream();
+		Conn conection = new Conn();
+		Blob blob =Hibernate.getLobCreator(conection.getSession()).createBlob(fileContent, fileContent.available());
+	
+		
 		
 		
 		try {
@@ -64,12 +83,18 @@ public class AddArticleMethod extends HttpServlet {
 			description = request.getParameter("description");
 			price = Double.valueOf(request.getParameter("precio"));
 			category_id = Integer.parseInt(request.getParameter("categorias"));
+			stock=Integer.valueOf(request.getParameter("stock"));
+			
+			
+			
 			
 			Category category=CRUDCategory.getCategory(category_id);
 			
 			
 			if(CRUDMovies.getMovie(id+1)==null&&CRUDMovies.getMovieTitle(title)==null&& (title!=null&& !title.isEmpty()) && (description!=null&& !description.isEmpty()) && (price !=null&& !price.isNaN()) && category_id!=null&&category!=null) {
-				Movies movie = new Movies(id+1,title.trim(), description.trim(), price, category);
+				Movies movie = new Movies(id+1,title.trim(), description.trim(), price, category, stock);
+				
+				movie.setImg(blob);
 				CRUDMovies.saveMovie(movie);
 //		response.sendRedirect(request.getContextPath()+"/ListMovies");
 				

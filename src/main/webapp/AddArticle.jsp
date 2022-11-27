@@ -3,14 +3,14 @@
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-     <%
+<%--      <%
  	String isSession = (String) session.getAttribute("login");
 	String userSession = (String) session.getAttribute("usuario");
 	
 	if(isSession == null && userSession == null){
 		response.sendRedirect("error.jsp?msg=No tienes permisos, haz login.");
 	}  
-%> 
+%>  --%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,7 +20,7 @@
 </head>
 <body>
 	<div align="center">
-<form action="AddArticleMethod" method="post" id="addUser">			
+<form action="AddArticleMethod" method="post" id="addUser" enctype="multipart/form-data">			
 		
 			<h3>Rellene los siguientes datos:</h3>
 					
@@ -44,11 +44,13 @@
 						<%} %>
 					
 					
-			
+						
 					
 						
 					</select>
+					<input type="hidden" value="30" name="stock" id="stock">
 					
+					<input type="file" name="uploadImg"  id="uploadImg"required>
 					<br>
 					<button type="submit" id="AddArticleButton" class="AddArticleButton">Enviar</button>
 					<button type="reset" id="resetButton" class="AddArticleButton">Borrar</button>

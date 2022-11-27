@@ -11,18 +11,20 @@ import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 
 public class Conn {
-
-	/**
-	 * Clase con la que realizaremos la conexión a base de datos.
-	 */
-
-		
-		private static StandardServiceRegistry sr = new StandardServiceRegistryBuilder().configure().build();
-		private static SessionFactory sf = new MetadataSources(sr).buildMetadata().buildSessionFactory();
-		private static Session session = sf.openSession();
-		
-		public static Session getSession() {	
-			
-			return session;
+		private  StandardServiceRegistry sr;
+		private  SessionFactory sf = null;
+		private  Session session = null;
+	
+		public Conn() {
+			sr = new StandardServiceRegistryBuilder().configure().build();
+			sf = new MetadataSources(sr).buildMetadata().buildSessionFactory();
+			session = sf.openSession();
 		}
-}
+
+		public Session getSession() {
+			return this.session;
+		}
+		
+		
+		}
+

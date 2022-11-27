@@ -12,14 +12,18 @@ import com.jacaranda.java.Conn;
 public class CRUDMovies {
 
 	public static Movies getMovie(Integer id ) {
-		Session session = Conn.getSession();
+		Conn conn = new Conn();
+		conn.getSession();
+		Session session= conn.getSession();
 		Movies movie = (Movies) session.get(Movies.class,id);
 		return movie;
 	}
 	
 	public static boolean saveMovie( Movies movie) {
 		boolean resultado=false;
-		Session session = Conn.getSession();
+		Conn conn = new Conn();
+		conn.getSession();
+		Session session= conn.getSession();
 		
 		try {
 			session.getTransaction().begin();
@@ -37,7 +41,9 @@ public class CRUDMovies {
 	
 	public  static boolean  deleteMovie(Movies movie) {
 		boolean resultado= false;
-		Session session =Conn.getSession();
+		Conn conn = new Conn();
+		conn.getSession();
+		Session session= conn.getSession();
 		
 		try {
 			
@@ -55,7 +61,9 @@ public class CRUDMovies {
 	}
 	
 	public static ArrayList<Movies> getMovies(){
-		Session session = Conn.getSession();
+		Conn conn = new Conn();
+		conn.getSession();
+		Session session= conn.getSession();
 		
 		Query<Movies> query = session.createQuery("SELECT p FROM com.jacaranda.java.Movies p");
 		ArrayList<Movies> movie = (ArrayList<Movies>) query.getResultList();
@@ -66,7 +74,9 @@ public class CRUDMovies {
 	public static List<Integer> MoviesMaxId() {
 		
 	    boolean valid = false;
-		Session session = Conn.getSession();
+	    Conn conn = new Conn();
+		conn.getSession();
+		Session session= conn.getSession();
 		Query<Integer> query = session.createQuery("SELECT MAX(id) FROM com.jacaranda.java.Movies");
 		List<Integer> Movies_maxID=query.getResultList();
 		    
@@ -76,7 +86,9 @@ public class CRUDMovies {
 	
 	public static Movies getMovieTitle(String title){
 		
-		Session session = Conn.getSession();
+		Conn conn = new Conn();
+		conn.getSession();
+		Session session= conn.getSession();
 	
 		Movies movies=null;
 		try {
@@ -90,5 +102,10 @@ public class CRUDMovies {
 	}
 	
 
-	
+	public Movies getImgMovie(Integer id) {
+		Conn conn = new Conn();
+		conn.getSession();
+		Session session= conn.getSession();
+	return session.get(Movies.class, id);
+	}
 }

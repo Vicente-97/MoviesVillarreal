@@ -9,14 +9,18 @@ public class CRUDUser {
 
 	
 	public static User getUser(String name ) {
-		Session session = Conn.getSession();
+		Conn conn = new Conn();
+		conn.getSession();
+		Session session= conn.getSession();
 		User user = (User) session.get(User.class,name);
 		return user;
 	}
 	
 	public static boolean saveUser( User user) {
 		boolean resultado=false;
-		Session session = Conn.getSession();
+		Conn conn = new Conn();
+		conn.getSession();
+		Session session= conn.getSession();
 		
 		try {
 			session.getTransaction().begin();
@@ -34,7 +38,9 @@ public class CRUDUser {
 	
 	public  static boolean  deleteUser(User user) {
 		boolean resultado= false;
-		Session session =Conn.getSession();
+		Conn conn = new Conn();
+		conn.getSession();
+		Session session= conn.getSession();
 		
 		try {
 			
@@ -52,7 +58,9 @@ public class CRUDUser {
 	}
 	
 	public static ArrayList<User> getUsers(){
-		Session session = Conn.getSession();
+		Conn conn = new Conn();
+		conn.getSession();
+		Session session= conn.getSession();
 		
 		Query<User> query = session.createQuery("SELECT p FROM com.jacaranda.java.User p");
 		ArrayList<User> user = (ArrayList<User>) query.getResultList();
