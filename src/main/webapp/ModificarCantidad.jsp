@@ -21,7 +21,7 @@
 	Integer newCantidad = Integer.valueOf(request.getParameter("cantidad_Modificar"));
 	Integer movieId = Integer.valueOf(request.getParameter("id_objeto")); 
 	CRUDMovies daoMovies = new CRUDMovies();
-	Movies movie=daoMovies.getMovie(movieId); 
+	Movies movie=daoMovies.getMovie(movieId);
 	MovieCarrito movieCarrito = new MovieCarrito(movie,(newCantidad), (movie.getPrice()*cantidad));
 
 

@@ -24,9 +24,9 @@
 </head>
 <body background="images/fondo2.jpg">
 	<div id="header">
-		 <a href = "indexBrand.jsp"><img src="images/icono2.png" width="110px" height="100px" id="logo"></a>
+		 <img src="images/logo_movie-removebg.png" width="110px" height="100px" id="logo">
 		 
-		 <span id="welcome"><h4>Sesion: <%=userSession %></h4><a href="CloseSession.jsp" ><button name="CloseSession" id="CloseSession" value="CloseSession">Log Out</button></a></span>
+		 <span id="welcome"><h4>Sesion: <%=userSession %></h4></span>
 		 
 		
 		 <hr>
@@ -63,7 +63,7 @@
 				<td><%=item.getMovie().getTitle()%></td>
 				<td><%=item.getCantidad() %>
 				<form action="ModificarCantidad.jsp" method="post">
-				<input type="number" name="cantidad_Modificar" min="">
+				<input type="number" name="cantidad_Modificar" min="1">
 				<input type="hidden" value=<%=item.getMovie().getId()%> name="id_objeto">
 				<input type="hidden" value=<%=item.getCantidad()%> name="cantidad">
 				<button type="submit" name="modificarCantidad" id="CarritoCompra">Modificar Cantidad</button></form>
@@ -82,9 +82,14 @@
 		</tr>
 		
 		</table>
+		<br>
 		<div id="botonadd" align="right">
 		<a href="Buy.jsp" ><button name="precio" id="addButton"value=<%=price%>>Comprar</button></a> 
+		<a href="ListMovies" ><buton name="precio" id="addButton">Back</button></a> 
 			</div>
+			
+		
+			
 	</div>
 
 </body>

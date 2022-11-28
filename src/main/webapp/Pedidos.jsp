@@ -32,9 +32,9 @@
 </head>
 <body background="images/fondo2.jpg">
 	<div id="header">
-		 <a href = "indexBrand.jsp"><img src="images/icono2.png" width="110px" height="100px" id="logo"></a>
+		 <img src="images/logo_movie-removebg.png" width="110px" height="100px" id="logo">
 		 
-		 <span id="welcome"><h4>Sesion: <%=userSession %></h4><a href="CloseSession.jsp" ><button name="CloseSession" id="CloseSession" value="CloseSession">Log Out</button></a></span>
+		 <span id="welcome"><h4>Sesion: <%=userSession %></h4><a href="CloseSession.jsp" ></a></span>
 		 
 		
 		 <hr>
@@ -60,7 +60,7 @@
 			
 		
 		<%
-		User user = CRUDUser.getUser(userSession);
+		
 		List<Purchase> listPurchase = CRUDPurchase.getListPurchase(userSession);
 		ComparatorDateTime c= new ComparatorDateTime();
 		listPurchase.sort(c);

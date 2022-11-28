@@ -1,3 +1,4 @@
+<%@page import="com.jacaranda.java.CRUDMovies"%>
 <%@page import="java.time.LocalDateTime"%>
 <%@page import="net.bytebuddy.asm.Advice.Local"%>
 <%@page import="com.jacaranda.java.User"%>
@@ -35,19 +36,15 @@
 	
 	
 	Purchase purchase = new Purchase(item.getPrecioTotal(),user, LocalDateTime.now(), item.getCantidad(),item.getMovie());
-	
+	CRUDPurchase.restarCantidad(purchase);
+	CRUDMovies.saveMovie(purchase.getId_movie());
 	CRUDPurchase.savePurchase(purchase);
-	
-	
-	
-
-
 
 	}
 	carrito.getListPurchase().clear();
 	%>
 	
-	<jsp:forward page="/ListMovies"></jsp:forward>
+	<jsp:forward page="/ListMovies" ></jsp:forward>
 
 </body>
 </html>

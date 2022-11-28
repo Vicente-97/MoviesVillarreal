@@ -113,12 +113,12 @@ public class ListMovies extends HttpServlet {
 								+ "	<br>");
 	    			}
 	    			out.println("<div align=\"right\">"
-	    					+ "<a href=\"Carrito.jsp\" <button name=\"carrito\" ><img height=\"50px\" width=\"50px\" src=\"images/carrito_1.png\"></button></a>");
-	    			out.println("<p>Artículos en el carrito: "+carro.getListPurchase().size()+"</p>");
-	    			out.println("<p><a href=\"Pedidos.jsp\" color=\"black\"><button name=\"pedidos\"> Mis pedidos</button></a></p>");
-	    			out.println("<p> Usuario : "+usuario+"</p>");
+	    					+ "<a href=\"Carrito.jsp\" <button name=\"carrito\" ><img height=\"70px\" width=\"70px\" src=\"images/carrito_1.png\"></button></a>");
+	    			out.println("<p><h3>Artículos en el carrito: "+carro.getListPurchase().size()+"</h3></p>");
+	    			out.println("<p><a href=\"Pedidos.jsp\" color=\"black\"><button name=\"pedidos\" id=\"addButton\"> Mis pedidos</button></a></p>");
+	    			out.println("<p><h3> Usuario : "+usuario+"</h3></p>");
 	    			out.println( "</div>");
-	    			out.println("<div align=\"right\"><a href=\"Index.jsp\" align=\"right\" ><button align=\"right\"  name=\\\"CloseSesssion\\\" id=\\\"CloseSesssion\\\" value=<\\\"CloseSesssion\\\">Close Session</button></a></div>");
+	    			out.println("<div align=\"right\"><a href=\"Index.jsp\" align=\"right\" ><button align=\"right\"  name=\"CloseSesssion\" id=\"addButton\" value=<\"CloseSesssion\">Close Session</button></a></div><br>");
 	    			
 	    			out.println("<div>"
 	    					+ "<table>"
@@ -128,7 +128,6 @@ public class ListMovies extends HttpServlet {
 	    					+ "<th>Description</th>"
 	    					+ "<th>Price</th>"
 	    					+ "<th>Img</th>"
-	    					+ "<th>Stock</th>"
 	    					+ "<th>Category</th>"
 	    					+ "<th>Zona de Compra</th>"
 	    					+ "</tr>");
@@ -158,8 +157,7 @@ public class ListMovies extends HttpServlet {
 //	    						<img  height=\"200px\" width=\"200px\"  alt=\"\"  src=\"images/noImage.png/>
 	    						out.println("<td><p>No photo</p></td>");
 	    					}out.println(
-	    							 "<td>"+movie.getStock()+"</td>"
-	    							+ "<td>"+movie.getCategory().getGenres()+"</td>"
+	    							 "<td>"+movie.getCategory().getGenres()+"</td>"
 	    							+ "<td><form action=\"CarritoCompra.jsp\" method=\"post\">"
 	    							+ "<input type=\"number\" name=\"cantidad\" min=1 >"
 	    							+ "<br><button type=\"submit\" name=\"CarritoCompra\" id=\"CarritoCompra\" value="+movie.getId()+">Añadir al carrito</button><br></form></td>");
