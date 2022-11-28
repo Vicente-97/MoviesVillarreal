@@ -105,9 +105,11 @@ public class Movies {
 		this.category = category;
 	}
 
+	
+
 	@Override
 	public int hashCode() {
-		return Objects.hash(category, description_movie, id, price, title);
+		return Objects.hash(category, description_movie, id, img, price, purchases, stock, title);
 	}
 
 	@Override
@@ -120,7 +122,8 @@ public class Movies {
 			return false;
 		Movies other = (Movies) obj;
 		return Objects.equals(category, other.category) && Objects.equals(description_movie, other.description_movie)
-				&& Objects.equals(id, other.id) && Objects.equals(price, other.price)
+				&& Objects.equals(id, other.id) && Objects.equals(img, other.img) && Objects.equals(price, other.price)
+				&& Objects.equals(purchases, other.purchases) && Objects.equals(stock, other.stock)
 				&& Objects.equals(title, other.title);
 	}
 

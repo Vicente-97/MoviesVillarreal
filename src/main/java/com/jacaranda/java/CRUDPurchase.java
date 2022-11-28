@@ -43,6 +43,7 @@ public class CRUDPurchase {
 	}
 	public static void restarCantidad(Purchase p) {
 		p.getId_movie().setStock(p.getId_movie().getStock()-p.getQuantity());
+		
 	}
 }
 

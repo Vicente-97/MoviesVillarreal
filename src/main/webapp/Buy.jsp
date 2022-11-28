@@ -1,3 +1,4 @@
+<%@page import="com.jacaranda.java.Movies"%>
 <%@page import="com.jacaranda.java.CRUDMovies"%>
 <%@page import="java.time.LocalDateTime"%>
 <%@page import="net.bytebuddy.asm.Advice.Local"%>
@@ -30,6 +31,7 @@
 	MovieCarrito item = new MovieCarrito();
 	User user=UtilsUsers.getUser(usuario);
 	
+	
 	while(iterator.hasNext()) { //Itera cada linea de nuestro carrito
 		 item = iterator.next();
 	
@@ -37,7 +39,6 @@
 	
 	Purchase purchase = new Purchase(item.getPrecioTotal(),user, LocalDateTime.now(), item.getCantidad(),item.getMovie());
 	CRUDPurchase.restarCantidad(purchase);
-	CRUDMovies.saveMovie(purchase.getId_movie());
 	CRUDPurchase.savePurchase(purchase);
 
 	}

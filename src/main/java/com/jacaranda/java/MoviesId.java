@@ -13,6 +13,17 @@ public class MoviesId  implements Serializable{
 	
 	public MoviesId() {
 	}
+	
+	
+
+	public MoviesId(String user, int id_movie, LocalDateTime date) {
+		super();
+		this.user = user;
+		this.id_movie = id_movie;
+		this.date = date;
+	}
+
+
 
 	public String getUser() {
 		return user;
