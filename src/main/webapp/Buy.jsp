@@ -44,7 +44,9 @@
 	
 	 Movies movie1 = purchase.getId_movie();
 	//le actualizo el stock
-	movie1.setStock(movie1.getStock()-purchase.getQuantity());
+		
+	movie1.setStock(purchase.getId_movie().getStock()-item.getCantidad());
+	
 	//la updateo
 	CRUDMovies.saveMovie(movie1); 
 	

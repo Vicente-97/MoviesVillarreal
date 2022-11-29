@@ -86,7 +86,7 @@
 		
 		<tr>
 			<td><b>Precio Total: </b></td>
-			<td colspan="2"><b><%=price %></b></td>
+			<td colspan="2"><b><%=Math.round(price*100.0)/100.0 %></b></td>
 		</tr>
 		
 		</table>

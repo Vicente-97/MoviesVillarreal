@@ -42,7 +42,7 @@ public class Purchase {
 	public Purchase(Double price, User user, LocalDateTime date, Integer quantity, Movies id_movie) {
 		super();
 		
-		this.price = price;
+		this.price = Math.round(price*100.0)/100.0;
 		this.user = user;
 		this.date = date;
 		this.quantity = quantity;

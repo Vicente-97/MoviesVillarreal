@@ -40,7 +40,7 @@ public class Carrito {
 					different = false;
 					item.setCantidad(movie.getCantidad());
 					item.setPrecioTotal(movie.getPrecioTotal());
-					movie.getMovie().setStock(movie.getMovie().getStock()-movie.getCantidad());
+				
 
 				}
 			}
@@ -48,7 +48,7 @@ public class Carrito {
 			if (different) {
 				
 				this.listPurchase.add(movie);
-				movie.getMovie().setStock(movie.getMovie().getStock()-movie.getCantidad());
+				
 
 			}
 		}
