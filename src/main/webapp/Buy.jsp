@@ -36,9 +36,19 @@
 		 item = iterator.next();
 	
 	
+	//creo una compra
 	
 	Purchase purchase = new Purchase(item.getPrecioTotal(),user, LocalDateTime.now(), item.getCantidad(),item.getMovie());
-	CRUDPurchase.restarCantidad(purchase);
+	
+	//creo una pelicula y la igualo a la pelicula de la compra
+	
+	 Movies movie1 = purchase.getId_movie();
+	//le actualizo el stock
+	movie1.setStock(movie1.getStock()-purchase.getQuantity());
+	//la updateo
+	CRUDMovies.saveMovie(movie1); 
+	
+	//guardo la compra
 	CRUDPurchase.savePurchase(purchase);
 
 	}

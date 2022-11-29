@@ -54,16 +54,23 @@
 		Iterator<MovieCarrito> iterator = listMoviesCarrito.iterator();  
 		MovieCarrito item = new MovieCarrito();
 		Double price=0.0;
+		
+		if(listMoviesCarrito.size()==0||listMoviesCarrito==null){
+			%>
+			<h1>No hay articulos</h1>
+		<%}else{
+		
 		while(iterator.hasNext()) { //Itera cada linea de nuestra base datos y nos la muestra en la tabla correspondiente.
 			
 			 item = iterator.next();
 			
 		%>
+			
 			<tr>
 				<td><%=item.getMovie().getTitle()%></td>
 				<td><%=item.getCantidad() %>
 				<form action="ModificarCantidad.jsp" method="post">
-				<input type="number" name="cantidad_Modificar" min="1">
+				<input type="number" name="cantidad_Modificar" min=1 max=<%=item.getMovie().getStock()%>>
 				<input type="hidden" value=<%=item.getMovie().getId()%> name="id_objeto">
 				<input type="hidden" value=<%=item.getCantidad()%> name="cantidad">
 				<button type="submit" name="modificarCantidad" id="CarritoCompra">Modificar Cantidad</button></form>
@@ -73,9 +80,10 @@
 			</tr>
 			
 			 
-		<%
-		}
-		%>
+		<%}
+		}%>
+		
+		
 		<tr>
 			<td><b>Precio Total: </b></td>
 			<td colspan="2"><b><%=price %></b></td>
@@ -84,9 +92,24 @@
 		</table>
 		<br>
 		<div id="botonadd" align="right">
-		<a href="Buy.jsp" ><button name="precio" id="addButton"value=<%=price%>>Comprar</button></a> 
-		<a href="ListMovies" ><buton name="precio" id="addButton">Back</button></a> 
-			</div>
+			<%if(listMoviesCarrito.size()==0||listMoviesCarrito==null){
+			%>
+			<a href="ListMovies"><button name="precio" id="addButton">Back</button></a>
+			<a href="vaciarCarrito.jsp"><button type="submit"
+					name="vaciarCarrito" id="addButton">Vaciar carrito</button></a>
+
+			<%}else{
+				%>
+			<a href="Buy.jsp"><button name="precio" id="addButton">Comprar</button></a>
+			<a href="ListMovies"><button name="precio" id="addButton">Back</button></a>
+			<a href="vaciarCarrito.jsp"><button type="submit"
+					name="vaciarCarrito" id="addButton">Vaciar carrito</button></a>
+		</div>
+		<% }%>
+		
+		
+	
+		
 			
 		
 			

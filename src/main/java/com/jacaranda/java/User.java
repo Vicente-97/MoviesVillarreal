@@ -27,8 +27,7 @@ public class User {
 	private LocalDate date;
 	private String gender;
 	private Integer admin;
-	@OneToMany(mappedBy="user")
-	private List<Purchase>purchases;
+	
 	
 	public User(String username, String password, String first_name, String last_name, LocalDate date, String gender,
 			Integer admin) {
@@ -40,7 +39,7 @@ public class User {
 		this.date = date;
 		this.gender = gender;
 		this.admin = admin;
-		this.purchases=new ArrayList<>();
+		
 	}
 
 	public User() {
@@ -103,6 +102,8 @@ public class User {
 		this.admin = admin;
 	}
 
+
+
 	@Override
 	public int hashCode() {
 		return Objects.hash(admin, date, first_name, gender, last_name, password, username);
@@ -117,9 +118,10 @@ public class User {
 		if (getClass() != obj.getClass())
 			return false;
 		User other = (User) obj;
-		return admin == other.admin && Objects.equals(date, other.date) && Objects.equals(first_name, other.first_name)
-				&& Objects.equals(gender, other.gender) && Objects.equals(last_name, other.last_name)
-				&& Objects.equals(password, other.password) && Objects.equals(username, other.username);
+		return Objects.equals(admin, other.admin) && Objects.equals(date, other.date)
+				&& Objects.equals(first_name, other.first_name) && Objects.equals(gender, other.gender)
+				&& Objects.equals(last_name, other.last_name) && Objects.equals(password, other.password)
+				&& Objects.equals(username, other.username);
 	}
 
 	@Override
@@ -128,13 +130,6 @@ public class User {
 				+ last_name + ", date=" + date + ", gender=" + gender + ", admin=" + admin + "]";
 	}
 
-	public List<Purchase> getPurchases() {
-		return purchases;
-	}
-
-	public void setPurchases(List<Purchase> purchases) {
-		this.purchases = purchases;
-	}
 
 	public Integer getAdmin() {
 		return admin;

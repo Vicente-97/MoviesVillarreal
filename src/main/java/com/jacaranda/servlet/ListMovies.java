@@ -106,6 +106,8 @@ public class ListMovies extends HttpServlet {
 	    				String message = e.getMessage();
 	    				response.sendRedirect("error.jsp?msg=" + message);
 	    			}
+	    			
+	    			out.println("<div align=\"left\"><img src=\"images/logo_movie-removebg.png\" width=\"110px\" height=\"100px\" id=\"logo\"></div>");
 	    			if(CRUDUser.getUser(usuario).getAdmin()==1) {
 						out.println("<div id=\"botonadd\" align=\"right\">\r\n"
 								+ "		<a href=\"AddArticle.jsp\" ><button name=\"AddArticle\" id=\"addButton\" value=\"AddArticle\">Añadir Articulo</button></a> \r\n"
@@ -114,9 +116,9 @@ public class ListMovies extends HttpServlet {
 	    			}
 	    			out.println("<div align=\"right\">"
 	    					+ "<a href=\"Carrito.jsp\" <button name=\"carrito\" ><img height=\"70px\" width=\"70px\" src=\"images/carrito_1.png\"></button></a>");
-	    			out.println("<p><h3>Artículos en el carrito: "+carro.getListPurchase().size()+"</h3></p>");
-	    			out.println("<p><a href=\"Pedidos.jsp\" color=\"black\"><button name=\"pedidos\" id=\"addButton\"> Mis pedidos</button></a></p>");
-	    			out.println("<p><h3> Usuario : "+usuario+"</h3></p>");
+	    			out.println("<h3>Artículos en el carrito: "+carro.getListPurchase().size()+"</h3>");
+	    			out.println("<a href=\"Pedidos.jsp\" color=\"black\"><button name=\"pedidos\" id=\"addButton\"> Mis pedidos</button></a>");
+	    			out.println("<h3> Usuario : "+usuario+"</h3>");
 	    			out.println( "</div>");
 	    			out.println("<div align=\"right\"><a href=\"Index.jsp\" align=\"right\" ><button align=\"right\"  name=\"CloseSesssion\" id=\"addButton\" value=<\"CloseSesssion\">Close Session</button></a></div><br>");
 	    			
@@ -129,6 +131,7 @@ public class ListMovies extends HttpServlet {
 	    					+ "<th>Price</th>"
 	    					+ "<th>Img</th>"
 	    					+ "<th>Category</th>"
+	    					+ "<th>Stock</th>"
 	    					+ "<th>Zona de Compra</th>"
 	    					+ "</tr>");
 	    			
@@ -158,10 +161,15 @@ public class ListMovies extends HttpServlet {
 	    						out.println("<td><p>No photo</p></td>");
 	    					}out.println(
 	    							 "<td>"+movie.getCategory().getGenres()+"</td>"
-	    							+ "<td><form action=\"CarritoCompra.jsp\" method=\"post\">"
-	    							+ "<input type=\"number\" name=\"cantidad\" min=1 >"
+	    							+ "<td>"+movie.getStock()+"</td>");
+	    							if(movie.getStock()==0||movie.getStock()==null) {
+	    								out.println("<td><p>Sin stock</p></td>");
+	    							}else {
+	    								out.println("<td><form action=\"CarritoCompra.jsp\" method=\"post\">"
+	    							+ "<input type=\"number\" name=\"cantidad\" min=1 max='"+movie.getStock()+"'>"
 	    							+ "<br><button type=\"submit\" name=\"CarritoCompra\" id=\"CarritoCompra\" value="+movie.getId()+">Añadir al carrito</button><br></form></td>");
-	    						
+	    							}
+	    							
 	    					
 	    					
 	    					

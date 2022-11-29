@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
@@ -27,8 +28,7 @@ public class Movies {
 	@JoinColumn(name="category_id")
 	private Category category;
 	
-	@OneToMany
-	private List<Purchase> purchases;
+	
 	
 
 	public Movies() {
@@ -43,7 +43,7 @@ public class Movies {
 		this.price = price;
 		this.stock=stock;
 		this.category = category;
-		this.purchases=new ArrayList<>();
+		
 	}
 	public Movies(String title, String description_movie, Double price, Category category) {
 		super();
@@ -51,7 +51,7 @@ public class Movies {
 		this.description_movie = description_movie;
 		this.price = price;
 		this.category = category;
-		this.purchases=new ArrayList<>();
+		
 	}
 	
 
@@ -107,9 +107,12 @@ public class Movies {
 
 	
 
+
+
+
 	@Override
 	public int hashCode() {
-		return Objects.hash(category, description_movie, id, img, price, purchases, stock, title);
+		return Objects.hash(category, description_movie, id, img, price, stock, title);
 	}
 
 	@Override
@@ -123,8 +126,7 @@ public class Movies {
 		Movies other = (Movies) obj;
 		return Objects.equals(category, other.category) && Objects.equals(description_movie, other.description_movie)
 				&& Objects.equals(id, other.id) && Objects.equals(img, other.img) && Objects.equals(price, other.price)
-				&& Objects.equals(purchases, other.purchases) && Objects.equals(stock, other.stock)
-				&& Objects.equals(title, other.title);
+				&& Objects.equals(stock, other.stock) && Objects.equals(title, other.title);
 	}
 
 	@Override
@@ -133,13 +135,6 @@ public class Movies {
 				+ ", category=" + category + "]";
 	}
 
-	public List<Purchase> getPurchases() {
-		return purchases;
-	}
-
-	public void setPurchases(List<Purchase> purchases) {
-		this.purchases = purchases;
-	}
 
 	public Integer getStock() {
 		return stock;
